@@ -1,8 +1,6 @@
-import "server-only";
-
-import { draftMode } from "next/headers";
-import type { QueryParams } from "@sanity/client";
 import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID; // "pv8y60vp"
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET; // "production"
@@ -14,43 +12,33 @@ export const client = createClient({
   apiVersion, // https://www.sanity.io/docs/api-versioning
   useCdn: false,
   perspective: "published",
+  document: {
+    // prev is the result from previous plugins and thus can be composed
+    productionUrl: async (prev: any, context: any) => {
+      // context includes the client and other details
+      const { getClient, dataset, document } = context;
+      const client = getClient({ apiVersion: "2023-05-31" });
+
+      if (document._type === "post") {
+        const slug = await client.fetch(
+          `*[_type == 'routeInfo' && post._ref == $postId][0].slug.current`,
+          { postId: document._id }
+        );
+
+        const params = new URLSearchParams();
+        params.set("preview", "true");
+        params.set("dataset", dataset);
+
+        return `https://my-site.com/posts/${slug}?${params}`;
+      }
+
+      return prev;
+    },
+  },
 });
 
-// Used by `PreviewProvider`
-export const token = process.env.SANITY_API_READ_TOKEN;
+const builder = imageUrlBuilder(client);
 
-const DEFAULT_PARAMS = {} as QueryParams;
-const DEFAULT_TAGS = [] as string[];
-
-export async function sanityFetch<QueryResponse>({
-  query,
-  params = DEFAULT_PARAMS,
-  tags = DEFAULT_TAGS,
-}: {
-  query: string;
-  params?: QueryParams;
-  tags: string[];
-}): Promise<QueryResponse> {
-  const isDraftMode = draftMode().isEnabled;
-  if (isDraftMode && !token) {
-    throw new Error(
-      "The `SANITY_API_READ_TOKEN` environment variable is required."
-    );
-  }
-
-  const REVALIDATE_SKIP_CACHE = 0;
-  const REVALIDATE_CACHE_FOREVER = false;
-
-  return client.fetch<QueryResponse>(query, params, {
-    ...(isDraftMode && {
-      token: token,
-      perspective: "previewDrafts",
-    }),
-    next: {
-      revalidate: isDraftMode
-        ? REVALIDATE_SKIP_CACHE
-        : REVALIDATE_CACHE_FOREVER,
-      tags,
-    },
-  });
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source);
 }

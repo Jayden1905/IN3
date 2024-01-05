@@ -17,7 +17,7 @@ export default defineConfig({
 
   plugins: [
     deskTool({
-      defaultDocumentNode,
+      defaultDocumentNode: defaultDocumentNode,
     }),
     visionTool(),
   ],
@@ -25,6 +25,4 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
-
-  // theme: myTheme,
 });

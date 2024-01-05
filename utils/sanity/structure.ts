@@ -1,5 +1,19 @@
+import { type DefaultDocumentNodeResolver } from "sanity/desk";
 import { Iframe } from "sanity-plugin-iframe-pane";
-import type { DefaultDocumentNodeResolver } from "sanity/desk";
+import { SanityDocument } from "sanity";
+
+type CustomSanityDocument = SanityDocument & {
+  slug: {
+    current: string;
+  };
+};
+
+const url = process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3000";
+
+// Customize this function to show the correct URL based on the current document
+function getPreviewUrl(doc: CustomSanityDocument) {
+  return doc?.slug?.current ? `${url}/posts/${doc.slug?.current}` : url;
+}
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
@@ -13,7 +27,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
         S.view
           .component(Iframe)
           .options({
-            url: `https://localhost:3000/`,
+            url: (doc: CustomSanityDocument) => getPreviewUrl(doc),
           })
           .title("Preview"),
       ]);

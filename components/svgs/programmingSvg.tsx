@@ -1,10 +1,13 @@
-export default function ProgrammingSvg() {
+import { cn } from "@/utils";
+
+export default function ProgrammingSvg({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       width="786.81995"
       height="572.25773"
+      className={cn("", className)}
       viewBox="0 0 786.81995 572.25773"
       // xmlns:xlink="http://www.w3.org/1999/xlink"
     >
