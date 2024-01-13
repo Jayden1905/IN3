@@ -21,6 +21,7 @@ const config = {
         gray: "#7c7c7c",
         darkGray: "#525252",
         dark: "#000000",
+        myOrange: "#f56f4a",
       },
       keyframes: {
         "accordion-down": {

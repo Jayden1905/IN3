@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { lato } from "@/utils/fonts";
+import { normalFont } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "IN3",
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lato.className} bg-primary text-dark scroll-smooth`}>
+      <body className={`${normalFont} bg-primary text-dark scroll-smooth`}>
         <main>{children}</main>
       </body>
     </html>

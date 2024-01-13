@@ -13,7 +13,7 @@ export default function Nav() {
     <nav className="fixed z-50 w-full py-4 backdrop-blur">
       <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
         <div>IN3</div>
-        <ul className="flex gap-8">
+        <ul className="hidden gap-8 md:flex">
           <li>Home</li>
           <li>About Us</li>
           <li>
