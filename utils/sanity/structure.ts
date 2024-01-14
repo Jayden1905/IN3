@@ -15,6 +15,10 @@ function getPreviewUrl(doc: CustomSanityDocument) {
   return doc?.slug?.current ? `${url}/posts/${doc.slug?.current}` : url;
 }
 
+function getCoursePreviewUrl(doc: CustomSanityDocument) {
+  return doc?.slug?.current ? `${url}/courses/${doc.slug?.current}` : url;
+}
+
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
@@ -28,6 +32,16 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
           .component(Iframe)
           .options({
             url: (doc: CustomSanityDocument) => getPreviewUrl(doc),
+          })
+          .title("Preview"),
+      ]);
+    case `courses`:
+      return S.document().views([
+        S.view.form(),
+        S.view
+          .component(Iframe)
+          .options({
+            url: (doc: CustomSanityDocument) => getCoursePreviewUrl(doc),
           })
           .title("Preview"),
       ]);

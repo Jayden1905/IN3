@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <>
       <Nav />
-      <main className="relative top-20">{children}</main>
+      <main className="relative top-8 md:top-20">{children}</main>
     </>
   );
 }
