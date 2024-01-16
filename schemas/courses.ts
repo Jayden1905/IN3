@@ -20,6 +20,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
@@ -33,6 +38,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: "createdAt",
+      title: "Created at",
+      type: "datetime",
+    }),
+    defineField({
       name: "categories",
       title: "Categories",
       type: "array",
@@ -41,8 +51,7 @@ export default defineType({
     defineField({
       name: "ageGroup",
       title: "Age Group",
-      type: "array",
-      of: [{ type: "reference", to: { type: "ageGroup" } }],
+      type: "string",
     }),
   ],
 });

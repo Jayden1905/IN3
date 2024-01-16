@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/footer";
 import Nav from "@/components/nav/nav";
 import type { Metadata } from "next";
 
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <>
       <Nav />
-      <main className="relative top-8 md:top-20">{children}</main>
+      <div className="relative top-8 md:bottom-20 md:top-20">
+        <main>{children}</main>
+        <Footer />
+      </div>
     </>
   );
 }

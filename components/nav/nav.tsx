@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "../layout/container";
 import {
   DropdownMenu,
@@ -8,6 +10,7 @@ import {
 import { IoMdArrowDropdown } from "react-icons/io";
 import { HiMenuAlt2 } from "react-icons/hi";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavLink = {
   name: string;
@@ -25,8 +28,8 @@ const navLinks: NavLink[] = [
       { name: "Super Tech Kids", href: "/courses/super-tech-kids" },
       { name: "Creative Tech Junior", href: "/courses/creative-tech-junior" },
       { name: "Maker Tech Pro", href: "/courses/maker-tech-pro" },
-      { name: "Stem-Dsa", href: "/courses/stem-dsa" },
       { name: "First Tech Camp", href: "/courses/first-tech-camp" },
+      { name: "Stem-Dsa", href: "/courses/stem-dsa" },
       { name: "Elite Coder", href: "/courses/elite-coder" },
     ],
   },
@@ -34,13 +37,18 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
+
   return (
     <nav className="fixed z-50 w-full py-4 backdrop-blur">
       <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
         <div>IN3</div>
         <ul className="hidden gap-8 md:flex">
           {navLinks.map((link, index) => (
-            <li key={index}>
+            <li
+              className={`${pathname === link.href ? "text-myOrange" : ""}`}
+              key={index}
+            >
               {!link.subLinks && <Link href={link.href}>{link.name}</Link>}
               {link.subLinks && (
                 <DropdownMenu>

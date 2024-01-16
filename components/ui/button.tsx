@@ -1,8 +1,7 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
-
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/utils";
 
 const buttonVariants = cva(
   "twinline-flex twitems-center twjustify-center twwhitespace-nowrap twrounded-md twtext-sm twfont-medium twtransition-colors focus-visible:twoutline-none focus-visible:twring-1 focus-visible:twring-gray-950 disabled:twpointer-events-none disabled:twopacity-50 dark:focus-visible:twring-gray-300",
@@ -17,7 +16,8 @@ const buttonVariants = cva(
           "twborder twborder-gray-200 twbg-white twshadow-sm hover:twbg-gray-100 hover:twtext-gray-900 dark:twborder-gray-800 dark:twbg-gray-950 dark:hover:twbg-gray-800 dark:hover:twtext-gray-50",
         secondary:
           "twbg-gray-100 twtext-gray-900 twshadow-sm hover:twbg-gray-100/80 dark:twbg-gray-800 dark:twtext-gray-50 dark:hover:twbg-gray-800/80",
-        ghost: "hover:twbg-gray-100 hover:twtext-gray-900 dark:hover:twbg-gray-800 dark:hover:twtext-gray-50",
+        ghost:
+          "hover:twbg-gray-100 hover:twtext-gray-900 dark:hover:twbg-gray-800 dark:hover:twtext-gray-50",
         link: "twtext-gray-900 twunderline-offset-4 hover:twunderline dark:twtext-gray-50",
       },
       size: {
@@ -32,26 +32,26 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
-Button.displayName = "Button"
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

@@ -9,3 +9,17 @@ export interface BlogPost {
   };
   mainImage: SanityImageSource;
 }
+
+type Category = {
+  name: string;
+  description: string;
+};
+
+export type CoursesType = {
+  title: string;
+  slug: {
+    current: string;
+  };
+  mainImage: SanityImageSource;
+  ageGroup: string;
+};
