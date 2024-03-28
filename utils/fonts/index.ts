@@ -1,15 +1,15 @@
-import { Lato, Montserrat_Alternates, Space_Mono } from "next/font/google";
-
-const lato = Lato({
-  weight: ["300", "400", "700", "900"],
-  subsets: ["latin"],
-});
+import { Space_Mono, Source_Sans_3 } from "next/font/google";
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
 
-export const normalFont: string = lato.className;
+const sourceSans = Source_Sans_3({
+  weight: ["300", "400", "600", "700"],
+  subsets: ["latin"],
+});
+
+export const normalFont: string = sourceSans.className;
 
 export const headerFont: string = spaceMono.className;

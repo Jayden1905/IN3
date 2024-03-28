@@ -12,7 +12,7 @@ export default function HeroSection({}) {
         <div className="relative flex justify-center gap-10">
           <div className="flex w-full flex-col gap-14 pt-10 md:w-1/2">
             <h1
-              className={`select-none text-4xl font-bold leading-[3rem] [word-spacing:-15px] sm:text-6xl sm:leading-[4.5rem] md:tracking-wide ${headerFont}`}
+              className={`${headerFont} select-none text-4xl font-bold leading-[3rem] [word-spacing:-15px] sm:text-6xl sm:leading-[4.5rem] md:tracking-wide`}
             >
               Fun,reliable <br /> and
               <span className="text-myOrange"> quality</span> <br /> education

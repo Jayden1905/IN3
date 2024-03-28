@@ -17,11 +17,10 @@ const config = {
     },
     extend: {
       colors: {
-        primary: "#e4e4e4",
-        gray: "#7c7c7c",
-        darkGray: "#525252",
-        dark: "#000000",
-        myOrange: "#f56f4a",
+        primary: "#dfdfdf",
+        secondary: "#464545",
+        myBlack: "#2f2f2f",
+        myOrange: "#f54703",
       },
       keyframes: {
         "accordion-down": {
@@ -36,6 +35,9 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        solaris: ["Solaris", "sans-serif"],
       },
     },
   },

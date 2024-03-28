@@ -1,5 +1,5 @@
-import { year } from "@/utils";
-import Container from "./container";
+import { year } from '@/utils'
+import Container from './container'
 
 export default function Footer() {
   return (
@@ -18,15 +18,15 @@ export default function Footer() {
           />
         </svg>
       </div>
-      <div className="bg-dark relative overflow-hidden text-white">
+      <div className="relative overflow-hidden bg-black text-white">
         <Container>
           <div className="mx-auto w-full max-w-screen-xl">
             <div className="grid grid-cols-2 gap-8 px-6 py-6 md:grid-cols-4 lg:py-8">
               <div>
-                <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                <h2 className="text-myOrange mb-6 font-semibold uppercase tracking-wide">
                   Company
                 </h2>
-                <ul className="font-medium text-gray-500 dark:text-gray-400">
+                <ul className="font-light text-white">
                   <li className="mb-4">
                     <a href="#" className=" hover:underline">
                       About
@@ -50,10 +50,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                <h2 className="text-myOrange mb-6 font-semibold uppercase tracking-wide">
                   Help center
                 </h2>
-                <ul className="font-medium text-gray-500 dark:text-gray-400">
+                <ul className="font-light text-white">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Discord Server
@@ -77,10 +77,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                <h2 className="text-myOrange mb-6 font-semibold uppercase tracking-wide">
                   Courses
                 </h2>
-                <ul className="font-medium text-gray-500 dark:text-gray-400">
+                <ul className="font-light text-white">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Robo Maker
@@ -104,10 +104,10 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                <h2 className="text-myOrange mb-6 font-semibold uppercase tracking-wide">
                   Contact Us
                 </h2>
-                <ul className="font-medium text-gray-500 dark:text-gray-400">
+                <ul className="font-light text-white">
                   <li className="mb-4">Address : 224A Upper Thomson Road</li>
                   <li className="mb-4">Singapore 574356</li>
                   <li className="mb-4">Tel: 6456 4898</li>
@@ -116,15 +116,12 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex flex-col items-center justify-center px-6 py-6 md:flex-row md:justify-between">
-              <span className="text-sm text-gray-500 sm:text-center dark:text-gray-300">
+              <span className="text-sm text-white sm:text-center">
                 © {year} <a href="https://flowbite.com/">IN3</a>. All Rights
                 Reserved.
               </span>
               <div className="mt-4 flex space-x-5 sm:justify-center md:mt-0 rtl:space-x-reverse">
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                >
+                <a href="#" className="hover:text-myOrange text-white">
                   <svg
                     className="h-4 w-4"
                     aria-hidden="true"
@@ -140,10 +137,7 @@ export default function Footer() {
                   </svg>
                   <span className="sr-only">Facebook page</span>
                 </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                >
+                <a href="#" className="hover:text-myOrange text-white">
                   <svg
                     className="h-4 w-4"
                     aria-hidden="true"
@@ -155,10 +149,7 @@ export default function Footer() {
                   </svg>
                   <span className="sr-only">Discord community</span>
                 </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                >
+                <a href="#" className="hover:text-myOrange text-white">
                   <svg
                     className="h-4 w-4"
                     aria-hidden="true"
@@ -174,10 +165,7 @@ export default function Footer() {
                   </svg>
                   <span className="sr-only">Twitter page</span>
                 </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                >
+                <a href="#" className="hover:text-myOrange text-white">
                   <svg
                     className="h-4 w-4"
                     aria-hidden="true"
@@ -193,10 +181,7 @@ export default function Footer() {
                   </svg>
                   <span className="sr-only">GitHub account</span>
                 </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                >
+                <a href="#" className="hover:text-myOrange text-white">
                   <svg
                     className="h-4 w-4"
                     aria-hidden="true"
@@ -218,5 +203,5 @@ export default function Footer() {
         </Container>
       </div>
     </footer>
-  );
+  )
 }

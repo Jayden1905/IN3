@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Solaris";
+  src: url("../public/Solaris.ttf");
+}
+
 * {
   scroll-behavior: smooth;
 }

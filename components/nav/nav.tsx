@@ -11,6 +11,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { HiMenuAlt2 } from "react-icons/hi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 type NavLink = {
   name: string;
@@ -42,11 +43,27 @@ export default function Nav() {
   return (
     <nav className="fixed z-50 w-full py-4 backdrop-blur">
       <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
-        <div>IN3</div>
+        <Link href={"/"} className="font-solaris text-myBlack text-3xl">
+          <div>
+            <Image
+              src={"/logo.png"}
+              alt="logo"
+              sizes="100vw"
+              style={{
+                width: "60px",
+                height: "60px",
+              }}
+              width={500}
+              height={500}
+            />
+          </div>
+        </Link>
         <ul className="hidden gap-8 md:flex">
           {navLinks.map((link, index) => (
             <li
-              className={`${pathname === link.href ? "text-myOrange" : ""}`}
+              className={`${
+                pathname === link.href ? "bg-myOrange text-primary" : ""
+              } hover:bg-myOrange hover:text-primary cursor-pointer rounded-full px-3 py-1 transition-all duration-150 ease-in-out`}
               key={index}
             >
               {!link.subLinks && <Link href={link.href}>{link.name}</Link>}
@@ -56,11 +73,11 @@ export default function Nav() {
                     <span>{link.name}</span>
                     <IoMdArrowDropdown />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="text-dark mt-4 hidden bg-white text-lg font-semibold md:block">
+                  <DropdownMenuContent className="text-dark mt-8 hidden bg-white text-lg font-semibold md:block">
                     {link.subLinks.map((subLink, index) => (
                       <DropdownMenuItem
                         key={index}
-                        className="hover:bg-darkGray ease-ein-out cursor-pointer px-4 py-2 transition-all duration-300 hover:text-white"
+                        className="hover:bg-myOrange cursor-pointer px-4 py-2 transition-all duration-150 ease-in-out hover:text-white"
                       >
                         <Link href={subLink.href}>{subLink.name}</Link>
                       </DropdownMenuItem>
@@ -76,11 +93,11 @@ export default function Nav() {
             <DropdownMenuTrigger className="flex items-center gap-2 text-2xl outline-none">
               <HiMenuAlt2 />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="text-dark mt-4 block bg-white text-lg font-semibold md:hidden">
+            <DropdownMenuContent className="text-dark mt-8 block bg-white text-lg font-semibold md:hidden">
               {navLinks.map((link, index) => (
                 <DropdownMenuItem
                   key={index}
-                  className="hover:bg-darkGray ease-ein-out cursor-pointer px-4 py-2 transition-all duration-300 hover:text-white"
+                  className="hover:bg-myOrange ease-ein-out hover:text-primary cursor-pointer px-4 py-2 transition-all duration-300"
                 >
                   {!link.subLinks && <Link href={link.href}>{link.name}</Link>}
                   {link.subLinks && (
@@ -93,7 +110,7 @@ export default function Nav() {
                         {link.subLinks.map((subLink, index) => (
                           <DropdownMenuItem
                             key={index}
-                            className="hover:bg-darkGray ease-ein-out cursor-pointer px-4 py-2 transition-all duration-300 hover:text-white"
+                            className="hover:bg-myOrange ease-ein-out hover:text-primary cursor-pointer px-4 py-2 transition-all duration-300"
                           >
                             <Link href={subLink.href}>{subLink.name}</Link>
                           </DropdownMenuItem>

@@ -1,8 +1,7 @@
-import Container from "@/components/layout/container";
-import FeaturedCard from "@/components/cards/featuredCard";
-import { client, urlFor } from "@/utils/sanity/client";
-import { CoursesType } from "@/utils/types";
-import { headerFont } from "@/utils/fonts";
+import FeaturedCard from '@/components/cards/featuredCard'
+import Container from '@/components/layout/container'
+import { client, urlFor } from '@/utils/sanity/client'
+import { CoursesType } from '@/utils/types'
 
 async function getCourses() {
   const query = `
@@ -12,22 +11,20 @@ async function getCourses() {
     ageGroup,
     mainImage,
   }
-`;
-  const data = await client.fetch<CoursesType[]>(query);
+`
+  const data = await client.fetch<CoursesType[]>(query)
 
-  return data;
+  return data
 }
 
 export default async function FeaturedCourses({}) {
-  const courses = await getCourses();
+  const courses = await getCourses()
 
   return (
     <>
       <Container className="mb-10 md:mb-36">
         <div className="flex flex-col items-center justify-center">
-          <h1
-            className={`${headerFont} text-center text-4xl font-bold [word-spacing:-10px] md:text-5xl`}
-          >
+          <h1 className={`text-center text-4xl font-bold md:text-5xl`}>
             Featured Courses
           </h1>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
@@ -44,5 +41,5 @@ export default async function FeaturedCourses({}) {
         </div>
       </Container>
     </>
-  );
+  )
 }

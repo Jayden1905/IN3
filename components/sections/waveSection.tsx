@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
-import { headerFont } from "@/utils/fonts";
+import React from 'react'
+import Link from 'next/link'
+import { headerFont } from '@/utils/fonts'
 
 export default function WaveSection() {
   return (
     <section>
-      <div className="bg-primary">
+      <div className="border-none">
         <svg
           viewBox="0 0 1440 142"
           fill="none"
@@ -32,17 +32,16 @@ export default function WaveSection() {
       <div className="relative overflow-hidden bg-zinc-100">
         <div className="pb-0 md:pb-32">
           <div className="flex h-full w-full flex-col gap-10 px-10 md:flex-row md:px-24">
-            <div className="border-dark flex flex-col justify-center border-r-0 border-opacity-20 md:w-1/2 md:border-r">
+            <div className="border-myBlack flex flex-col justify-center border-r-0 border-opacity-20 md:w-1/2 md:border-r">
               <div className="mb-6 md:mb-0">
                 <h1
-                  className={`${headerFont} pb-10 text-4xl font-bold leading-[3rem] tracking-wide [word-spacing:-10px] md:text-5xl md:leading-[3.5rem]`}
+                  className={`pb-10 text-4xl font-bold leading-[3rem] tracking-wider md:text-5xl md:leading-[3.5rem]`}
                 >
-                  Ready to learn <br />
-                  robotics and coding?
+                  Ready to learn <br /> robotics and coding?
                 </h1>
                 <Link
-                  href={"#featured-courses"}
-                  className="hover:text-primary px-2 py-3 text-xl text-teal-700 underline underline-offset-[15px] transition-all duration-150 ease-in-out hover:bg-teal-700 hover:no-underline"
+                  href={'#featured-courses'}
+                  className="hover:text-primary text-myOrange hover:bg-myOrange px-2 py-3 text-xl underline underline-offset-[15px] transition-all duration-150 ease-in-out hover:no-underline"
                 >
                   Learn more
                 </Link>
@@ -73,5 +72,5 @@ export default function WaveSection() {
         </svg>
       </div>
     </section>
-  );
+  )
 }

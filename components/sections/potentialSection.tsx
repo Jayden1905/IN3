@@ -1,10 +1,10 @@
-import Container from "@/components/layout/container";
-import CockpitSvg from "@/components/svgs/cockpitSvg";
-import PlanetSvg from "@/components/svgs/planetSvg";
-import RocketSvg from "@/components/svgs/rocketSvg";
-import SatelliteSvg from "@/components/svgs/satelliteSvg";
-import MyButton from "@/components/ui/myButton";
-import { headerFont } from "@/utils/fonts";
+import Container from '@/components/layout/container'
+import CockpitSvg from '@/components/svgs/cockpitSvg'
+import PlanetSvg from '@/components/svgs/planetSvg'
+import RocketSvg from '@/components/svgs/rocketSvg'
+import SatelliteSvg from '@/components/svgs/satelliteSvg'
+import MyButton from '@/components/ui/myButton'
+import { headerFont } from '@/utils/fonts'
 
 export default function PotentialSection({}) {
   return (
@@ -21,7 +21,10 @@ export default function PotentialSection({}) {
           and innovative leaders for the future of our nation.
         </p>
         <div>
-          <MyButton className="p-3 text-lg" label="Explore potential" />
+          <MyButton
+            className="bg-myOrange p-3 text-lg"
+            label="Explore potential"
+          />
         </div>
         <div>
           <ul className="flex flex-wrap items-center justify-center gap-8">
@@ -69,5 +72,5 @@ export default function PotentialSection({}) {
         </div>
       </Container>
     </section>
-  );
+  )
 }
