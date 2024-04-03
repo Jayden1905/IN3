@@ -1,8 +1,7 @@
-import Container from '@/components/layout/container'
-import MyButton from '@/components/ui/myButton'
-import { headerFont } from '@/utils/fonts'
-import Image from 'next/image'
-import { TiTick } from 'react-icons/ti'
+import Container from "@/components/layout/container";
+import MyButton from "@/components/ui/myButton";
+import Image from "next/image";
+import { TiTick } from "react-icons/ti";
 
 export default function AboutSection({}) {
   return (
@@ -22,7 +21,7 @@ export default function AboutSection({}) {
             />
           </svg>
         </div> */}
-        <div className="relative overflow-hidden bg-white pt-16">
+        <div className="bg-primary relative overflow-hidden pt-16">
           <div className="pb-10 pt-4 md:pb-24">
             <Container className="flex flex-col gap-10 md:gap-28">
               <div className="flex flex-col items-center justify-between gap-10 md:flex-row">
@@ -58,8 +57,8 @@ export default function AboutSection({}) {
                       alt="about_robo"
                       sizes="100vw"
                       style={{
-                        width: '550px',
-                        height: '350px',
+                        width: "550px",
+                        height: "350px",
                       }}
                       width={550}
                       height={350}
@@ -75,8 +74,8 @@ export default function AboutSection({}) {
                       alt="about_robo"
                       sizes="100vw"
                       style={{
-                        width: '450px',
-                        height: '550px',
+                        width: "450px",
+                        height: "550px",
                       }}
                       width={450}
                       height={550}
@@ -121,8 +120,8 @@ export default function AboutSection({}) {
                     alt="about_robo"
                     sizes="100vw"
                     style={{
-                      width: '400px',
-                      height: '450px',
+                      width: "400px",
+                      height: "450px",
                     }}
                     width={400}
                     height={450}
@@ -146,5 +145,5 @@ export default function AboutSection({}) {
         </div>
       </section>
     </>
-  )
+  );
 }

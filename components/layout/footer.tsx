@@ -1,10 +1,10 @@
-import { year } from '@/utils'
-import Container from './container'
+import { year } from "@/utils";
+import Container from "./container";
 
 export default function Footer() {
   return (
     <footer className="overflow-hidden">
-      <div className="bg-primary">
+      <div className="bg-white">
         <svg
           width="1600"
           height="105"
@@ -203,5 +203,5 @@ export default function Footer() {
         </Container>
       </div>
     </footer>
-  )
+  );
 }

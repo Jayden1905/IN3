@@ -38,6 +38,7 @@ const config = {
       },
       fontFamily: {
         solaris: ["Solaris", "sans-serif"],
+        sfpro: ["SF-Pro", "sans-serif"],
       },
     },
   },

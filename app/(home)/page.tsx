@@ -1,61 +1,51 @@
-import Container from '@/components/layout/container'
-import AboutSection from '@/components/sections/aboutSection'
-import FeaturedCourses from '@/components/sections/featuredCourses'
-import PotentialSection from '@/components/sections/potentialSection'
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
-import Link from 'next/link'
+"use client";
+import Container from "@/components/layout/container";
+import AboutSection from "@/components/sections/aboutSection";
+import FeaturedCourses from "@/components/sections/featuredCourses";
+import PotentialSection from "@/components/sections/potentialSection";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import Image from "next/image";
+import Link from "next/link";
+import { TiTick } from "react-icons/ti";
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Container className="mb-20">
         <section className="flex flex-col gap-4">
           <h1
-            className={`text-center text-4xl font-bold leading-[3rem] tracking-wider md:text-6xl md:leading-[5rem]`}
+            style={{ wordSpacing: "0.3rem" }}
+            className={`font-sfpro text-center text-5xl font-bold leading-[3.5rem] md:text-8xl`}
           >
-            Today is a good day <br /> to start learning{' '}
-            <span className="text-myOrange">Coding.</span>
+            Become The Best At <span className="text-myOrange">Coding.</span>
           </h1>
-          <p className="text-center text-lg font-light tracking-wide md:text-2xl">
-            We are the leading provider of technology education in Singapore{' '}
-            <br />
-            that specialize in robotics and coding for students.
+          <p className="mt-4 text-center text-2xl tracking-wide">
+            Upgrade your education with IN3.
           </p>
-          <div className="mb-6 flex items-center justify-center gap-6">
-            <Button className="bg-myOrange text-primary rounded-full px-8 py-2 text-lg tracking-wide">
-              Start with a trial class
-            </Button>
-            <Button className="border-myBlack hover:bg-myBlack rounded-full border-2 px-8 py-2 text-lg tracking-wide transition-all duration-100 ease-in-out hover:text-white">
-              Explore Courses
-            </Button>
-          </div>
-          <div className="border-myBlack relative h-[60vh] w-full rounded border-2">
+          <AspectRatio ratio={4 / 2} className="mt-5">
             <Image
-              priority
-              src={'/kid_with_vr.jpeg'}
-              alt="kid with vr"
+              src="/kid_with_vr.jpeg"
+              alt="Image"
+              className="rounded-md object-cover"
               fill
-              sizes="100%"
-              className="rounded object-cover"
             />
-          </div>
+          </AspectRatio>
         </section>
       </Container>
-      {/* <HeroSection /> */}
-      <div className="mb-16 bg-white py-16">
+      <div className="bg-primary mb-16 py-16">
         <Container className="flex h-full w-full flex-col gap-10 md:flex-row">
           <div className="border-myBlack flex flex-col justify-center border-r-0 border-opacity-20 md:w-1/2 md:border-r">
             <div className="mb-6 md:mb-0">
               <h1
-                className={`pb-10 text-4xl font-bold leading-[3rem] tracking-wider md:text-5xl md:leading-[3.5rem]`}
+                className={`pb-10 text-5xl font-bold leading-[3rem] tracking-wider md:text-5xl md:leading-[3.5rem]`}
               >
-                Ready to learn <br /> robotics and coding?
+                Understanding our <br /> learning{" "}
+                <span className="text-myOrange">model.</span>
               </h1>
               <Link
-                href={'#featured-courses'}
+                href={"#featured-courses"}
                 className="hover:text-primary text-myOrange hover:bg-myOrange px-2 py-3 text-xl underline underline-offset-[15px] transition-all duration-150 ease-in-out hover:no-underline"
               >
                 Learn more
@@ -63,11 +53,27 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex flex-col justify-center md:w-1/2">
-            <p className="text-xl tracking-wide">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis voluptates sequi consequuntur facere, repudiandae quo?
-              dolore necessitatibus delectus reprehenderit consequuntur quos?
+            <p className="mb-6 text-lg tracking-wider">
+              The &quot;Integrate, Innovate, and Inspire&quot; learning model
+              seamlessly combines diverse disciplines, innovative teaching
+              methods, and a motivational environment to foster a comprehensive
+              understanding and inspire lifelong learning in an ever-evolving
+              world.
             </p>
+            <ul className="flex flex-col gap-5 text-xl tracking-wide">
+              <li className="flex items-center gap-2">
+                <TiTick className="text-3xl" />
+                Combines diverse disciplines
+              </li>
+              <li className="flex items-center gap-2">
+                <TiTick className="text-3xl" />
+                Utilizes innovative teaching
+              </li>
+              <li className="flex items-center gap-2">
+                <TiTick className="text-3xl" />
+                Sparks enthusiasm for learning
+              </li>
+            </ul>
           </div>
         </Container>
         <section id="featured-courses"></section>
@@ -76,5 +82,5 @@ export default async function Home() {
       <AboutSection />
       <PotentialSection />
     </>
-  )
+  );
 }
