@@ -34,6 +34,7 @@ export default function Home() {
           </AspectRatio>
         </section>
       </Container>
+      <FeaturedCourses />
       <div className="bg-primary mb-16 py-16">
         <Container className="flex h-full w-full flex-col gap-10 md:flex-row">
           <div className="border-myBlack flex flex-col justify-center border-r-0 border-opacity-20 md:w-1/2 md:border-r">
@@ -78,7 +79,6 @@ export default function Home() {
         </Container>
         <section id="featured-courses"></section>
       </div>
-      <FeaturedCourses />
       <AboutSection />
       <PotentialSection />
     </>

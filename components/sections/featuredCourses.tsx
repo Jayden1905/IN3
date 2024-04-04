@@ -25,7 +25,7 @@ export default async function FeaturedCourses({}) {
       <Container className="mb-10 md:mb-36">
         <div className="flex flex-col items-center justify-center">
           <h1
-            className={`text-center text-5xl font-bold tracking-wide md:text-8xl`}
+            className={`font-sfpro text-center text-5xl font-bold tracking-wide md:text-8xl`}
           >
             Featured Courses
           </h1>

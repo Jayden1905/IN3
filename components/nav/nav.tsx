@@ -1,56 +1,56 @@
-"use client";
-import Container from "../layout/container";
+'use client'
+import Container from '../layout/container'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { HiMenuAlt2 } from "react-icons/hi";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
+} from '@/components/ui/dropdown-menu'
+import { IoMdArrowDropdown } from 'react-icons/io'
+import { HiMenuAlt2 } from 'react-icons/hi'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 type NavLink = {
-  name: string;
-  href: string;
-  subLinks?: NavLink[];
-};
+  name: string
+  href: string
+  subLinks?: NavLink[]
+}
 
 const navLinks: NavLink[] = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about-us" },
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about-us' },
   {
-    name: "Courses",
-    href: "/courses",
+    name: 'Courses',
+    href: '/courses',
     subLinks: [
-      { name: "Super Tech Kids", href: "/courses/super-tech-kids" },
-      { name: "Creative Tech Junior", href: "/courses/creative-tech-junior" },
-      { name: "Maker Tech Pro", href: "/courses/maker-tech-pro" },
-      { name: "First Tech Camp", href: "/courses/first-tech-camp" },
-      { name: "Stem-Dsa", href: "/courses/stem-dsa" },
-      { name: "Elite Coder", href: "/courses/elite-coder" },
+      { name: 'Super Tech Kids', href: '/courses/super-tech-kids' },
+      { name: 'Creative Tech Junior', href: '/courses/creative-tech-junior' },
+      { name: 'Maker Tech Pro', href: '/courses/maker-tech-pro' },
+      { name: 'First Tech Camp', href: '/courses/first-tech-camp' },
+      { name: 'Stem-Dsa', href: '/courses/stem-dsa' },
+      { name: 'Elite Coder', href: '/courses/elite-coder' },
     ],
   },
-  { name: "Contact Us", href: "/contact-us" },
-];
+  { name: 'Contact Us', href: '/contact-us' },
+]
 
 export default function Nav() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <nav className="fixed z-50 w-full py-4 backdrop-blur">
       <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
-        <Link href={"/"} className="font-solaris text-myBlack text-3xl">
+        <Link href={'/'} className="font-solaris text-myBlack text-3xl">
           <div>
             <Image
-              src={"/logo.png"}
+              src={'/logo.png'}
               alt="logo"
               sizes="100vw"
               style={{
-                width: "60px",
-                height: "60px",
+                width: '60px',
+                height: '60px',
               }}
               width={500}
               height={500}
@@ -61,7 +61,7 @@ export default function Nav() {
           {navLinks.map((link, index) => (
             <li
               className={`${
-                pathname === link.href ? "bg-myOrange text-primary" : ""
+                pathname === link.href ? 'bg-myOrange text-primary' : ''
               } hover:bg-myOrange hover:text-primary cursor-pointer rounded-full px-3 py-1 transition-all duration-150 ease-in-out`}
               key={index}
             >
@@ -124,5 +124,5 @@ export default function Nav() {
         </div>
       </Container>
     </nav>
-  );
+  )
 }
