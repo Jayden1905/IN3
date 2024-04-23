@@ -3,17 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Solaris";
-  src: url("../public/Solaris.ttf");
+  font-family: 'Solaris';
+  src: url('../public/Solaris.ttf');
 }
 
 @font-face {
-  font-family: "SF-Pro";
-  src: url("../public/SF-Pro.ttf");
-}
-
-* {
-  scroll-behavior: smooth;
+  font-family: 'SF-Pro';
+  src: url('../public/SF-Pro.ttf');
 }
 
 .btn-shadow {
@@ -26,4 +22,8 @@
 
 .image-frame-shadow {
   box-shadow: 7px -7px 0px black;
+}
+
+.video-frame-shadow {
+  box-shadow: 7px 7px 0px black;
 }

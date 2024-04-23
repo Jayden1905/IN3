@@ -1,13 +1,13 @@
-import Image from "next/image";
-import "./style.css";
-import Link from "next/link";
+import Image from 'next/image'
+import './style.css'
+import Link from 'next/link'
 
 type FeaturedCardProps = {
-  title: string;
-  imgUrl: string;
-  ageGroup: string;
-  slug: string;
-};
+  title: string
+  imgUrl: string
+  ageGroup: string
+  slug: string
+}
 
 export default function FeaturedCard({
   title,
@@ -28,11 +28,11 @@ export default function FeaturedCard({
           <Image
             src={imgUrl}
             alt={title}
-            className="rounded-md object-cover transition-all duration-150 ease-in-out group-hover:scale-110"
+            className="rounded-md object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
             fill
           />
         </div>
       </div>
     </Link>
-  );
+  )
 }
