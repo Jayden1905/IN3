@@ -54,6 +54,7 @@ export default function Nav() {
               }}
               width={500}
               height={500}
+              priority={true}
             />
           </div>
         </Link>
@@ -72,7 +73,7 @@ export default function Nav() {
                     <span>{link.name}</span>
                     <IoMdArrowDropdown />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="text-dark mt-8 hidden bg-white text-lg font-semibold md:block">
+                  <DropdownMenuContent className="mt-8 hidden bg-black text-lg font-semibold text-white md:block">
                     {link.subLinks.map((subLink, index) => (
                       <DropdownMenuItem
                         key={index}

@@ -22,14 +22,17 @@ export default function FeaturedCard({
           <h1 className={`font-sfpro w-full text-3xl font-bold tracking-tight`}>
             {title}
           </h1>
-          <p className="font-sfpro text-3xl font-bold">{ageGroup}</p>
+          <p className="font-sfpro text-myOrange text-3xl font-bold">
+            {ageGroup}
+          </p>
         </div>
-        <div className="h-[550px] w-[400px]">
+        <div className="relative h-[550px] w-[400px]">
           <Image
             src={imgUrl}
             alt={title}
             className="rounded-md object-cover transition-all duration-300 ease-in-out group-hover:scale-110"
             fill
+            sizes="100%"
           />
         </div>
       </div>

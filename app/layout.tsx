@@ -1,7 +1,6 @@
+import { normalFont } from '@/utils/fonts'
 import type { Metadata } from 'next'
 import './globals.css'
-import { normalFont } from '@/utils/fonts'
-import Footer from '@/components/layout/footer'
 
 export const metadata: Metadata = {
   title: 'IN3',
@@ -21,7 +20,6 @@ export default function RootLayout({
       </head>
       <body className={`${normalFont} text-dark bg-white`}>
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   )

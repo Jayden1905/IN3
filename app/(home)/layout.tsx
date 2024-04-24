@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/footer'
 import Nav from '@/components/nav/nav'
 
 export default function RootLayout({
@@ -11,6 +12,7 @@ export default function RootLayout({
       <div className="relative top-24 md:bottom-20">
         <main>{children}</main>
       </div>
+      <Footer />
     </>
   )
 }
