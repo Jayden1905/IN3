@@ -15,12 +15,15 @@ import Image from 'next/image'
 type NavLink = {
   name: string
   href: string
-  subLinks?: NavLink[]
+  subLinks: {
+    name: string
+    href: string
+  }[]
 }
 
 const navLinks: NavLink[] = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about-us' },
+  { name: 'Home', href: '/', subLinks: [] },
+  { name: 'About Us', href: '/about-us', subLinks: [] },
   {
     name: 'Courses',
     href: '/courses',
@@ -33,7 +36,7 @@ const navLinks: NavLink[] = [
       { name: 'Elite Coder', href: '/courses/elite-coder' },
     ],
   },
-  { name: 'Contact Us', href: '/contact-us' },
+  { name: 'Contact Us', href: '/contact-us', subLinks: [] },
 ]
 
 export default function Nav() {
@@ -66,8 +69,10 @@ export default function Nav() {
               } hover:bg-myOrange hover:text-primary cursor-pointer rounded-full px-3 py-1 transition-all duration-150 ease-in-out`}
               key={index}
             >
-              {!link.subLinks && <Link href={link.href}>{link.name}</Link>}
-              {link.subLinks && (
+              {link.subLinks.length === 0 && (
+                <Link href={link.href}>{link.name}</Link>
+              )}
+              {link.subLinks.length > 0 && (
                 <DropdownMenu>
                   <DropdownMenuTrigger className="hidden items-center gap-2 outline-none md:flex">
                     <span>{link.name}</span>

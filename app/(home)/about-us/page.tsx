@@ -1,9 +1,9 @@
-import Container from "@/components/layout/container";
+import Container from '@/components/layout/container'
 
-export default function AboutUsPage() {
+export default async function AboutUsPage() {
   return (
     <Container>
       <p>About us page</p>
     </Container>
-  );
+  )
 }
