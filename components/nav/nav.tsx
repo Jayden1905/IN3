@@ -66,7 +66,7 @@ export default function Nav() {
             <li
               className={`${
                 pathname === link.href ? 'bg-myOrange text-primary' : ''
-              } hover:bg-myOrange hover:text-primary cursor-pointer rounded-full px-3 py-1 transition-all duration-150 ease-in-out`}
+              } hover:bg-myOrange hover:text-primary cursor-pointer rounded px-3 py-1 transition-all duration-150 ease-in-out`}
               key={index}
             >
               {link.subLinks.length === 0 && (
@@ -78,7 +78,7 @@ export default function Nav() {
                     <span>{link.name}</span>
                     <IoMdArrowDropdown />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="mt-8 hidden bg-black text-lg font-semibold text-white md:block">
+                  <DropdownMenuContent className="text-primary mt-8 hidden bg-black text-lg font-semibold md:block">
                     {link.subLinks.map((subLink, index) => (
                       <DropdownMenuItem
                         key={index}
@@ -98,14 +98,16 @@ export default function Nav() {
             <DropdownMenuTrigger className="flex items-center gap-2 text-2xl outline-none">
               <HiMenuAlt2 />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="text-dark mt-8 block bg-white text-lg font-semibold md:hidden">
+            <DropdownMenuContent className="text-primary mt-8 block bg-black text-lg font-semibold md:hidden">
               {navLinks.map((link, index) => (
                 <DropdownMenuItem
                   key={index}
                   className="hover:bg-myOrange ease-ein-out hover:text-primary cursor-pointer px-4 py-2 transition-all duration-300"
                 >
-                  {!link.subLinks && <Link href={link.href}>{link.name}</Link>}
-                  {link.subLinks && (
+                  {link.subLinks.length === 0 && (
+                    <Link href={link.href}>{link.name}</Link>
+                  )}
+                  {link.subLinks.length > 0 && (
                     <DropdownMenu>
                       <DropdownMenuTrigger className="flex items-center gap-2 outline-none">
                         <span>{link.name}</span>
