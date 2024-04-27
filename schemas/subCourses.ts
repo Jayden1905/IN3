@@ -1,28 +1,14 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'courses',
-  title: 'Courses',
+  name: 'subCourses',
+  title: 'Sub Courses',
   type: 'document',
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-    }),
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
-    }),
-    defineField({
-      name: 'featured',
-      title: 'Featured',
-      type: 'boolean',
     }),
     defineField({
       name: 'description',
@@ -52,12 +38,6 @@ export default defineType({
       name: 'ageGroup',
       title: 'Age Group',
       type: 'string',
-    }),
-    defineField({
-      name: 'subCourses',
-      title: 'Sub Courses',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'subCourses' } }],
     }),
   ],
 })

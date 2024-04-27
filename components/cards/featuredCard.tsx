@@ -26,7 +26,7 @@ export default function FeaturedCard({
             {ageGroup}
           </p>
         </div>
-        <div className="relative h-[550px] w-[400px]">
+        <div className="relative h-[350px] w-[300px] md:h-[550px] md:w-[400px]">
           <Image
             src={imgUrl}
             alt={title}

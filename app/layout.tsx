@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo_with_bg.png" sizes="any" />
       </head>
-      <body className={`${normalFont} text-dark bg-white`}>
+      <body className={`${normalFont} text-dark bg-primary`}>
         <main>{children}</main>
       </body>
     </html>

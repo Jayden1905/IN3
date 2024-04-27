@@ -3,8 +3,8 @@ import Container from './container'
 
 export default function Footer() {
   return (
-    <footer className="mt-44 overflow-hidden">
-      <div className="bg-white">
+    <footer className="mt-20 overflow-hidden">
+      <div className="bg-primary">
         <svg
           width="1600"
           height="105"

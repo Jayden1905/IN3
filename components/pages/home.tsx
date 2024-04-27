@@ -80,7 +80,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
           </div>
         </div>
       </Container>
-      <div className="bg-primary mb-16 py-16">
+      <div className="mb-16 bg-white py-16">
         <Container className="flex h-full w-full flex-col gap-10 md:flex-row">
           <div className="border-myBlack flex flex-col justify-center border-r-0 border-opacity-20 md:w-1/2 md:border-r">
             <div className="mb-6 md:mb-0">
@@ -120,7 +120,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
           }}
         >
           <iframe
-            className="video-frame-shadow pointer-events-none h-[800px] w-full object-cover"
+            className="video-frame-shadow pointer-events-none h-[300px] w-full object-cover md:h-[800px]"
             ref={iframeRef}
             src={url}
             title="in3labs Holiday Workshops"

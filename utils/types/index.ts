@@ -1,25 +1,32 @@
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 export interface BlogPost {
-  _id: string;
-  title: string;
-  smallDescription: string;
+  _id: string
+  title: string
+  smallDescription: string
   slug: {
-    current: string;
-  };
-  mainImage: SanityImageSource;
+    current: string
+  }
+  mainImage: SanityImageSource
 }
 
 type Category = {
-  name: string;
-  description: string;
-};
+  name: string
+  description: string
+}
 
 export type CoursesType = {
-  title: string;
+  title: string
   slug: {
-    current: string;
-  };
-  mainImage: SanityImageSource;
-  ageGroup: string;
-};
+    current: string
+  }
+  mainImage: SanityImageSource
+  ageGroup: string
+  description: string
+  subCourses: {
+    title: string
+    description: string
+    mainImage: SanityImageSource
+    ageGroup: string
+  }[]
+}

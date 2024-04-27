@@ -43,7 +43,7 @@ export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed z-50 w-full py-4 backdrop-blur">
+    <nav className={`fixed z-50 w-full py-4 backdrop-blur`}>
       <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
         <Link href={'/'} className="font-solaris text-myBlack text-3xl">
           <div>
