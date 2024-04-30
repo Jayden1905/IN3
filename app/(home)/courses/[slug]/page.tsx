@@ -81,37 +81,40 @@ export default async function CoursePage({
       </div>
       <Container className="mt-10">
         <div className="flex flex-col gap-14">
-          {subCourses.map((subCourse, i) => (
-            <div
-              key={i}
-              className="flex flex-col gap-16 rounded-xl border-l-[8px] border-black bg-white p-5 md:flex-row"
-            >
-              <div className="flex flex-col gap-4">
-                <h1 className="text-3xl font-bold">{subCourse.title}</h1>
-                <div className="relative h-72 w-full overflow-hidden rounded-lg border-2 border-black">
-                  <Image
-                    className="h-full w-full object-cover"
-                    src={urlFor(subCourse.mainImage).url()}
-                    alt="1"
-                    fill
-                  />
-                </div>
-                <p className="text-lg tracking-wide">{subCourse.description}</p>
-                <p className="text-xl font-bold tracking-wide">
-                  Age:{' '}
-                  <span className="text-myOrange">{subCourse.ageGroup}</span>
-                </p>
-                <div className="flex gap-4">
-                  <Button className="bg-myOrange rounded px-4 py-3 font-semibold tracking-wide text-white">
-                    Book a Trial
-                  </Button>
-                  <Button className="rounded bg-black px-4 py-3 font-semibold tracking-wide text-white">
-                    More Details
-                  </Button>
+          {subCourses &&
+            subCourses.map((subCourse, i) => (
+              <div
+                key={i}
+                className="flex flex-col gap-16 rounded-xl border-l-[8px] border-black bg-white p-5 md:flex-row"
+              >
+                <div className="flex flex-col gap-4">
+                  <h1 className="text-3xl font-bold">{subCourse.title}</h1>
+                  <div className="relative h-72 w-full overflow-hidden rounded-lg border-2 border-black">
+                    <Image
+                      className="h-full w-full object-cover"
+                      src={urlFor(subCourse.mainImage).url()}
+                      alt="1"
+                      fill
+                    />
+                  </div>
+                  <p className="text-lg tracking-wide">
+                    {subCourse.description}
+                  </p>
+                  <p className="text-xl font-bold tracking-wide">
+                    Age:{' '}
+                    <span className="text-myOrange">{subCourse.ageGroup}</span>
+                  </p>
+                  <div className="flex gap-4">
+                    <Button className="bg-myOrange rounded px-4 py-3 font-semibold tracking-wide text-white">
+                      Book a Trial
+                    </Button>
+                    <Button className="rounded bg-black px-4 py-3 font-semibold tracking-wide text-white">
+                      More Details
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </Container>
     </div>
