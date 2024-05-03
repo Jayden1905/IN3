@@ -36,58 +36,23 @@ export default async function CoursePage({
     <div>
       <div className="flex h-full w-full flex-col items-center gap-6 bg-[#4e374f] p-10">
         <div>
-          <h1 className="text-primary text-center text-4xl font-bold md:text-6xl">
+          <h1 className="text-primary text-center text-4xl font-bold md:text-8xl">
             {data.title}
           </h1>
-          <p className="text-primary mt-4 text-center text-lg tracking-wide md:text-2xl">
+          <p className="text-primary mt-4 text-center text-lg tracking-wide md:text-xl">
             {data.description}
           </p>
         </div>
-        <ul className="mt-4 flex flex-wrap items-center justify-center gap-10">
-          <li className="flex flex-col items-center justify-center gap-2">
-            <Image
-              className="h-auto w-auto"
-              src={'/coding.png'}
-              alt="1"
-              width={70}
-              height={70}
-            />
-          </li>
-          <li className="flex flex-col items-center justify-center gap-2">
-            <Image
-              className="h-auto w-auto"
-              src={'/robotic.png'}
-              alt="1"
-              width={100}
-              height={100}
-            />
-          </li>
-          <li className="flex flex-col items-center justify-center gap-2">
-            <Image
-              className="h-auto w-auto"
-              src={'/rocket.png'}
-              alt="1"
-              width={120}
-              height={120}
-            />
-          </li>
-        </ul>
-        <Button
-          size={'lg'}
-          className="mt-10 rounded bg-white px-4 py-3 text-lg font-semibold tracking-wide"
-        >
-          Register Now
-        </Button>
       </div>
       <Container className="mt-10">
-        <div className="flex flex-col gap-14">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {subCourses &&
             subCourses.map((subCourse, i) => (
               <div
                 key={i}
-                className="flex flex-col gap-16 rounded-xl border-l-[8px] border-black bg-white p-5 md:flex-row"
+                className="flex w-full flex-col gap-16 rounded-xl border-l-[8px] border-black bg-white p-5 md:flex-row"
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex w-full flex-col gap-4">
                   <h1 className="text-3xl font-bold">{subCourse.title}</h1>
                   <div className="relative h-72 w-full overflow-hidden rounded-lg border-2 border-black">
                     <Image
@@ -95,12 +60,13 @@ export default async function CoursePage({
                       src={urlFor(subCourse.mainImage).url()}
                       alt="1"
                       fill
+                      sizes="(min-width: 640px) 640px, 100vw"
                     />
                   </div>
-                  <p className="text-lg tracking-wide">
+                  {/* <p className="text-lg tracking-wide">
                     {subCourse.description}
-                  </p>
-                  <p className="text-xl font-bold tracking-wide">
+                  </p> */}
+                  <p className="mt-auto text-xl font-bold tracking-wide">
                     Age:{' '}
                     <span className="text-myOrange">{subCourse.ageGroup}</span>
                   </p>
