@@ -30,3 +30,10 @@ export type CoursesType = {
     ageGroup: string
   }[]
 }
+
+export type SubCoursesType = {
+  title: string
+  description: string
+  mainImage: SanityImageSource
+  ageGroup: string
+}

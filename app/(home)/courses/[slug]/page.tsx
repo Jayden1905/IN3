@@ -1,3 +1,5 @@
+import Dialog from '@/components/dialog/dialog'
+import DialogButton from '@/components/dialog/dialogButton'
 import Container from '@/components/layout/container'
 import { Button } from '@/components/ui/button'
 import { client, urlFor } from '@/utils/sanity/client'
@@ -19,6 +21,7 @@ async function getCourse(slug: string) {
     },
   }
   `
+
   const data = await client.fetch<CoursesType>(query, { slug })
 
   return data
@@ -31,6 +34,10 @@ export default async function CoursePage({
 }) {
   const data = await getCourse(params.slug)
   const subCourses = data.subCourses
+
+  async function onOk() {
+    'use server'
+  }
 
   return (
     <div>
@@ -63,9 +70,6 @@ export default async function CoursePage({
                       sizes="(min-width: 640px) 640px, 100vw"
                     />
                   </div>
-                  {/* <p className="text-lg tracking-wide">
-                    {subCourse.description}
-                  </p> */}
                   <p className="mt-auto text-xl font-bold tracking-wide">
                     Age:{' '}
                     <span className="text-myOrange">{subCourse.ageGroup}</span>
@@ -74,13 +78,12 @@ export default async function CoursePage({
                     <Button className="bg-myOrange rounded px-4 py-3 font-semibold tracking-wide text-white">
                       Book a Trial
                     </Button>
-                    <Button className="rounded bg-black px-4 py-3 font-semibold tracking-wide text-white">
-                      More Details
-                    </Button>
+                    <DialogButton index={i} />
                   </div>
                 </div>
               </div>
             ))}
+          <Dialog data={subCourses} />
         </div>
       </Container>
     </div>
