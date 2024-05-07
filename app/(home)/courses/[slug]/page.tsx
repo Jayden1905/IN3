@@ -34,6 +34,7 @@ export default async function CoursePage({
 }) {
   const data = await getCourse(params.slug)
   const subCourses = data.subCourses
+  const hello = 'hello'
 
   return (
     <div>
