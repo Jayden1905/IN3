@@ -1,14 +1,7 @@
-import FeaturedCard from "@/components/cards/featuredCard";
-import Container from "@/components/layout/container";
 import HomePage from "@/components/pages/home";
-import AboutSection from "@/components/sections/aboutSection";
-import PotentialSection from "@/components/sections/potentialSection";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { client, urlFor } from "@/utils/sanity/client";
+import { client } from "@/utils/sanity/client";
 import { CoursesType } from "@/utils/types";
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "IN3",

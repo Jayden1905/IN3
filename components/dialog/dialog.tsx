@@ -83,7 +83,7 @@ export default function Dialog({ data }: Props) {
           </div>
           <button
             onClick={closeDialog}
-            className="mb-2 h-8 w-8 cursor-pointer rounded border-none px-2 py-1 text-3xl font-bold text-white"
+            className="mb-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded border-none bg-red-700 px-2 py-1 text-2xl font-bold text-white"
           >
             x
           </button>
