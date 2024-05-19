@@ -6,6 +6,7 @@ import { useAtom } from 'jotai'
 import { useEffect, useRef } from 'react'
 import { Avatar, AvatarImage } from '../ui/avatar'
 import { AvatarFallback } from '@radix-ui/react-avatar'
+import { SubCourses } from '@/sanity.types'
 
 type Props = {
   data: SubCoursesType[]
@@ -19,11 +20,13 @@ export default function Dialog({ data }: Props) {
 
   const course = data[subCourseIndex]
 
-  const courseInitial = course.title
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .slice(0, 2)
+  const courseInitial =
+    course.title &&
+    course.title
+      .split(' ')
+      .map((word) => word[0])
+      .join('')
+      .slice(0, 2)
 
   useEffect(() => {
     if (showDialog) {
@@ -54,7 +57,7 @@ export default function Dialog({ data }: Props) {
             <Avatar>
               <AvatarImage
                 className="h-20 w-20 rounded-xl md:h-24 md:w-24"
-                src={urlFor(course.mainImage).url()}
+                src={urlFor(course.mainImage || { asset: { _ref: '' } }).url()}
               />
               <AvatarFallback>
                 <div className="flex h-24 w-24 items-center justify-center rounded-xl bg-white">

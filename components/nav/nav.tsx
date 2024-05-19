@@ -80,8 +80,8 @@ export default function Nav() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink, index) => (
-                      <Link key={index} href={subLink.href}>
-                        <DropdownMenuItem className="cursor-pointer text-lg font-semibold">
+                      <Link key={index} href={subLink.href} className="group">
+                        <DropdownMenuItem className="group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white">
                           {subLink.name}
                         </DropdownMenuItem>
                       </Link>
@@ -95,7 +95,7 @@ export default function Nav() {
         <div className="block md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <HiMenuAlt2 />
+              <HiMenuAlt2 className="h-7 w-7 outline-none" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navLinks.map((link, index) => (
@@ -111,9 +111,15 @@ export default function Nav() {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent>
                         {link.subLinks.map((subLink, index) => (
-                          <DropdownMenuItem key={index} className="text-lg">
-                            <Link href={subLink.href}>{subLink.name}</Link>
-                          </DropdownMenuItem>
+                          <Link
+                            key={index}
+                            href={subLink.href}
+                            className="group"
+                          >
+                            <DropdownMenuItem className="group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white">
+                              {subLink.name}
+                            </DropdownMenuItem>
+                          </Link>
                         ))}
                       </DropdownMenuContent>
                     </DropdownMenu>
