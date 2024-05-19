@@ -6,14 +6,6 @@ import { useAtom } from 'jotai'
 import { useEffect, useRef } from 'react'
 import { Avatar, AvatarImage } from '../ui/avatar'
 import { AvatarFallback } from '@radix-ui/react-avatar'
-import { Card, CardContent } from '@/components/ui/card'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
 
 type Props = {
   data: SubCoursesType[]

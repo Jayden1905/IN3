@@ -65,8 +65,8 @@ export default function Nav() {
           {navLinks.map((link, index) => (
             <li
               className={`${
-                pathname === link.href ? 'bg-myOrange text-primary' : ''
-              } hover:bg-myOrange hover:text-primary cursor-pointer rounded px-3 py-1 transition-all duration-150 ease-in-out`}
+                pathname === link.href ? 'bg-myOrange text-white' : ''
+              } hover:bg-myOrange cursor-pointer rounded px-3 py-1 transition-all duration-150 ease-in-out hover:text-white`}
               key={index}
             >
               {link.subLinks.length === 0 && (
@@ -74,18 +74,17 @@ export default function Nav() {
               )}
               {link.subLinks.length > 0 && (
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="hidden items-center gap-2 outline-none md:flex">
+                  <DropdownMenuTrigger className="flex items-center justify-center gap-2 outline-none">
                     <span>{link.name}</span>
                     <IoMdArrowDropdown />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="text-primary mt-8 hidden bg-black text-lg font-semibold md:block">
+                  <DropdownMenuContent>
                     {link.subLinks.map((subLink, index) => (
-                      <DropdownMenuItem
-                        key={index}
-                        className="hover:bg-myOrange cursor-pointer px-4 py-2 transition-all duration-150 ease-in-out hover:text-white"
-                      >
-                        <Link href={subLink.href}>{subLink.name}</Link>
-                      </DropdownMenuItem>
+                      <Link key={index} href={subLink.href}>
+                        <DropdownMenuItem className="cursor-pointer text-lg font-semibold">
+                          {subLink.name}
+                        </DropdownMenuItem>
+                      </Link>
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -95,30 +94,24 @@ export default function Nav() {
         </ul>
         <div className="block md:hidden">
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-2 text-2xl outline-none">
+            <DropdownMenuTrigger>
               <HiMenuAlt2 />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="text-primary mt-8 block bg-black text-lg font-semibold md:hidden">
+            <DropdownMenuContent>
               {navLinks.map((link, index) => (
-                <DropdownMenuItem
-                  key={index}
-                  className="hover:bg-myOrange ease-ein-out hover:text-primary cursor-pointer px-4 py-2 transition-all duration-300"
-                >
+                <DropdownMenuItem className="text-lg" key={index}>
                   {link.subLinks.length === 0 && (
                     <Link href={link.href}>{link.name}</Link>
                   )}
                   {link.subLinks.length > 0 && (
                     <DropdownMenu>
-                      <DropdownMenuTrigger className="flex items-center gap-2 outline-none">
+                      <DropdownMenuTrigger className="flex items-center justify-center gap-2 outline-none">
                         <span>{link.name}</span>
                         <IoMdArrowDropdown />
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="text-dark mt-4 block bg-white text-lg font-semibold md:hidden">
+                      <DropdownMenuContent>
                         {link.subLinks.map((subLink, index) => (
-                          <DropdownMenuItem
-                            key={index}
-                            className="hover:bg-myOrange ease-ein-out hover:text-primary cursor-pointer px-4 py-2 transition-all duration-300"
-                          >
+                          <DropdownMenuItem key={index} className="text-lg">
                             <Link href={subLink.href}>{subLink.name}</Link>
                           </DropdownMenuItem>
                         ))}

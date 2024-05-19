@@ -15,7 +15,6 @@ async function getCourse(slug: string) {
     description,
     subCourses[]-> {
       title,
-      description,
       mainImage,
       ageGroup,
     },
@@ -39,10 +38,10 @@ export default async function CoursePage({
     <div>
       <div className="flex h-full w-full flex-col items-center gap-6 bg-[#4e374f] p-10">
         <div>
-          <h1 className="text-primary text-center text-4xl font-bold md:text-8xl">
+          <h1 className="text-center text-4xl font-bold text-white md:text-8xl">
             {data.title}
           </h1>
-          <p className="text-primary mt-4 text-center text-lg tracking-wide md:text-xl">
+          <p className="mt-4 text-center text-lg tracking-wide text-white md:text-xl">
             {data.description}
           </p>
         </div>
@@ -53,7 +52,7 @@ export default async function CoursePage({
             subCourses.map((subCourse, i) => (
               <div
                 key={i}
-                className="flex w-full flex-col gap-16 rounded-xl border-l-[8px] border-black bg-white p-5 md:flex-row"
+                className="flex w-full flex-col gap-16 rounded-xl border border-l-[8px] border-black bg-white p-5 md:flex-row"
               >
                 <div className="flex w-full flex-col gap-4">
                   <h1 className="text-3xl font-bold">{subCourse.title}</h1>
@@ -71,7 +70,7 @@ export default async function CoursePage({
                     <span className="text-myOrange">{subCourse.ageGroup}</span>
                   </p>
                   <div className="flex gap-4">
-                    <Button className="bg-myOrange rounded px-4 py-3 font-semibold tracking-wide text-white">
+                    <Button size={'lg'} className="bg-myOrange text-lg">
                       Book a Trial
                     </Button>
                     <DialogButton index={i} />

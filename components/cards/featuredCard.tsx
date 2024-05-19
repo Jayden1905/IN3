@@ -17,7 +17,7 @@ export default function FeaturedCard({
 }: FeaturedCardProps) {
   return (
     <Link href={`courses/${slug}`}>
-      <div className="border-myBlack group relative flex flex-col items-center justify-center overflow-hidden rounded-lg border-2">
+      <div className="group relative flex flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-black">
         <div className="flex w-full items-center justify-between p-2">
           <h1 className={`font-sfpro w-full text-3xl font-bold tracking-tight`}>
             {title}

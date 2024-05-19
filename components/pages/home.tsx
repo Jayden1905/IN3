@@ -93,7 +93,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
               </h1>
               <Link
                 href={'#featured-courses'}
-                className="hover:text-primary text-myOrange hover:bg-myOrange px-2 py-3 text-xl underline underline-offset-[15px] transition-all duration-150 ease-in-out hover:no-underline"
+                className="hover:text-primary text-myOrange hover:bg-myOrange px-2 py-3 text-xl underline underline-offset-[15px] transition-all duration-150 ease-in-out hover:text-white hover:no-underline"
               >
                 Learn more
               </Link>

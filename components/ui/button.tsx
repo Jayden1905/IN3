@@ -1,30 +1,30 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/utils";
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "twinline-flex twitems-center twjustify-center twwhitespace-nowrap twrounded-md twtext-sm twfont-medium twtransition-colors focus-visible:twoutline-none focus-visible:twring-1 focus-visible:twring-gray-950 disabled:twpointer-events-none disabled:twopacity-50 dark:focus-visible:twring-gray-300",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-300",
   {
     variants: {
       variant: {
         default:
-          "twbg-gray-900 twtext-gray-50 twshadow hover:twbg-gray-900/90 dark:twbg-gray-50 dark:twtext-gray-900 dark:hover:twbg-gray-50/90",
+          "bg-neutral-900 text-neutral-50 shadow hover:bg-neutral-900/90 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90",
         destructive:
-          "twbg-red-500 twtext-gray-50 twshadow-sm hover:twbg-red-500/90 dark:twbg-red-900 dark:twtext-gray-50 dark:hover:twbg-red-900/90",
+          "bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90",
         outline:
-          "twborder twborder-gray-200 twbg-white twshadow-sm hover:twbg-gray-100 hover:twtext-gray-900 dark:twborder-gray-800 dark:twbg-gray-950 dark:hover:twbg-gray-800 dark:hover:twtext-gray-50",
+          "border border-neutral-200 bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
         secondary:
-          "twbg-gray-100 twtext-gray-900 twshadow-sm hover:twbg-gray-100/80 dark:twbg-gray-800 dark:twtext-gray-50 dark:hover:twbg-gray-800/80",
-        ghost:
-          "hover:twbg-gray-100 hover:twtext-gray-900 dark:hover:twbg-gray-800 dark:hover:twtext-gray-50",
-        link: "twtext-gray-900 twunderline-offset-4 hover:twunderline dark:twtext-gray-50",
+          "bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80",
+        ghost: "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+        link: "text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50",
       },
       size: {
-        default: "twh-9 twpx-4 twpy-2",
-        sm: "twh-8 twrounded-md twpx-3 twtext-xs",
-        lg: "twh-10 twrounded-md twpx-8",
-        icon: "twh-9 tww-9",
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
       },
     },
     defaultVariants: {
@@ -32,26 +32,26 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-);
+)
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+  asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    );
+    )
   }
-);
-Button.displayName = "Button";
+)
+Button.displayName = "Button"
 
-export { Button, buttonVariants };
+export { Button, buttonVariants }

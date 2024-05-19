@@ -3,9 +3,8 @@ import CockpitSvg from '@/components/svgs/cockpitSvg'
 import PlanetSvg from '@/components/svgs/planetSvg'
 import RocketSvg from '@/components/svgs/rocketSvg'
 import SatelliteSvg from '@/components/svgs/satelliteSvg'
-import MyButton from '@/components/ui/myButton'
-import { headerFont } from '@/utils/fonts'
 import Image from 'next/image'
+import { Button } from '../ui/button'
 
 export default function PotentialSection({}) {
   return (
@@ -22,10 +21,9 @@ export default function PotentialSection({}) {
           and innovative leaders for the future of our nation.
         </p>
         <div>
-          <MyButton
-            className="bg-myOrange p-3 text-lg"
-            label="Explore potential"
-          />
+          <Button size={'lg'} className="py-6 text-lg">
+            Explore Potential
+          </Button>
         </div>
         <div className="mt-10">
           <ul className="flex flex-wrap items-center justify-center gap-8">
