@@ -23,12 +23,7 @@ export type CoursesType = {
   mainImage: SanityImageSource
   ageGroup: string
   description: string
-  subCourses: {
-    title: string
-    description: string
-    mainImage: SanityImageSource
-    ageGroup: string
-  }[]
+  subCourses: SubCoursesType[]
 }
 
 export type SubCoursesType = {

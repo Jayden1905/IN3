@@ -3,28 +3,11 @@ import DialogButton from '@/components/dialog/dialogButton'
 import Container from '@/components/layout/container'
 import { Button } from '@/components/ui/button'
 import { client, urlFor } from '@/utils/sanity/client'
-import { CoursesType } from '@/utils/types'
 import Image from 'next/image'
+import { getCourse, getSubCourse } from '../actions/action'
+import { SubCoursesType } from '@/utils/types'
 
 export const dynamic = 'force-dynamic'
-
-async function getCourse(slug: string) {
-  const query = `
-  *[_type == "courses" && slug.current == $slug][0] {
-    title,
-    description,
-    subCourses[]-> {
-      title,
-      mainImage,
-      ageGroup,
-    },
-  }
-  `
-
-  const data = await client.fetch<CoursesType>(query, { slug })
-
-  return data
-}
 
 export default async function CoursePage({
   params,
@@ -49,7 +32,7 @@ export default async function CoursePage({
       <Container className="mt-10">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {subCourses &&
-            subCourses.map((subCourse, i) => (
+            subCourses.map((subCourse: SubCoursesType, i: number) => (
               <div
                 key={i}
                 className="flex w-full flex-col gap-16 rounded-xl border border-l-[8px] border-black bg-white p-5 md:flex-row"
@@ -73,7 +56,7 @@ export default async function CoursePage({
                     <Button size={'lg'} className="bg-myOrange text-lg">
                       Book a Trial
                     </Button>
-                    <DialogButton index={i} />
+                    <DialogButton index={i} title={subCourse.title} />
                   </div>
                 </div>
               </div>
