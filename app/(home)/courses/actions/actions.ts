@@ -1,7 +1,7 @@
 'use server'
 
 import { client } from '@/utils/sanity/client'
-import { CoursesType } from '@/utils/types'
+import { CoursesType, SubCoursesType } from '@/utils/types'
 import { groq } from 'next-sanity'
 
 export async function getCourse(slug: string) {
@@ -13,7 +13,8 @@ export async function getCourse(slug: string) {
       title,
       mainImage,
       ageGroup,
-      description
+      description,
+      bannerColor
     },
   }
   `
@@ -23,14 +24,23 @@ export async function getCourse(slug: string) {
   return data
 }
 
-export async function getSubCourse(title: string) {
+export async function getAllCourses() {
   const query = groq`
-  *[_type == "subCourses" && title == $title][0] {
+  *[_type == "courses"] {
+    title,
+    slug,
     description,
+    subCourses[]-> {
+      title,
+      mainImage,
+      ageGroup,
+      description,
+      bannerColor
+    },
   }
   `
 
-  const data = await client.fetch(query, { title })
+  const data = await client.fetch<CoursesType[]>(query)
 
   return data
 }

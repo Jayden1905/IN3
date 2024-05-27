@@ -44,13 +44,13 @@ export default function Nav() {
 
   return (
     <nav className={`fixed z-50 w-full py-4 backdrop-blur`}>
-      <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
-        <Link href={'/'} className="font-solaris text-myBlack text-3xl">
+      <Container className='flex items-center justify-between text-lg font-semibold tracking-wide'>
+        <Link href={'/'} className='font-solaris text-myBlack text-3xl'>
           <div>
             <Image
               src={'/logo.png'}
-              alt="logo"
-              sizes="100vw"
+              alt='logo'
+              sizes='100vw'
               style={{
                 width: '60px',
                 height: '60px',
@@ -61,7 +61,7 @@ export default function Nav() {
             />
           </div>
         </Link>
-        <ul className="hidden gap-8 md:flex">
+        <ul className='hidden gap-8 md:flex'>
           {navLinks.map((link, index) => (
             <li
               className={`${
@@ -74,14 +74,14 @@ export default function Nav() {
               )}
               {link.subLinks.length > 0 && (
                 <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center justify-center gap-2 outline-none">
+                  <DropdownMenuTrigger className='flex items-center justify-center gap-2 outline-none'>
                     <span>{link.name}</span>
                     <IoMdArrowDropdown />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink, index) => (
-                      <Link key={index} href={subLink.href} className="group">
-                        <DropdownMenuItem className="group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white">
+                      <Link key={index} href={subLink.href} className='group'>
+                        <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
                           {subLink.name}
                         </DropdownMenuItem>
                       </Link>
@@ -92,20 +92,20 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <div className="block md:hidden">
+        <div className='block md:hidden'>
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <HiMenuAlt2 className="h-7 w-7 outline-none" />
+              <HiMenuAlt2 className='h-7 w-7 outline-none' />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navLinks.map((link, index) => (
-                <DropdownMenuItem className="text-lg" key={index}>
+                <DropdownMenuItem className='text-lg' key={index}>
                   {link.subLinks.length === 0 && (
                     <Link href={link.href}>{link.name}</Link>
                   )}
                   {link.subLinks.length > 0 && (
                     <DropdownMenu>
-                      <DropdownMenuTrigger className="flex items-center justify-center gap-2 outline-none">
+                      <DropdownMenuTrigger className='flex items-center justify-center gap-2 outline-none'>
                         <span>{link.name}</span>
                         <IoMdArrowDropdown />
                       </DropdownMenuTrigger>
@@ -114,9 +114,9 @@ export default function Nav() {
                           <Link
                             key={index}
                             href={subLink.href}
-                            className="group"
+                            className='group'
                           >
-                            <DropdownMenuItem className="group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white">
+                            <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
                               {subLink.name}
                             </DropdownMenuItem>
                           </Link>

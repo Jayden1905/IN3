@@ -14,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <link rel="icon" href="/logo_with_bg.png" sizes="any" />
+        <link rel='icon' href='/logo_with_bg.png' sizes='any' />
       </head>
       <body className={`${normalFont} text-dark bg-primary`}>
         <main>{children}</main>
