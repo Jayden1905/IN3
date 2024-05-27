@@ -1,7 +1,7 @@
 'use server'
 
 import { client } from '@/utils/sanity/client'
-import { CoursesType, SubCoursesType } from '@/utils/types'
+import { CoursesType } from '@/utils/types'
 import { groq } from 'next-sanity'
 
 export async function getCourse(slug: string) {

@@ -101,7 +101,7 @@ export default async function CoursePage({
                       <DialogTrigger asChild>
                         <Button className='text-lg'>Learn More</Button>
                       </DialogTrigger>
-                      <DialogContent className='max-w-md h-full sm:h-fit rounded-lg sm:max-w-4xl'>
+                      <DialogContent className='w-full h-full p-2 sm:p-5 pt-10 sm:h-fit rounded-lg sm:max-w-4xl'>
                         <ScrollArea>
                           <DialogHeader>
                             <DialogTitle className='text-3xl'>
@@ -113,7 +113,7 @@ export default async function CoursePage({
                             </DialogDescription>
                           </DialogHeader>
                           <div className='flex flex-col gap-10'>
-                            <div className='min-w-md relative min-h-[300px]'>
+                            <div className='w-full relative h-[300px]'>
                               <Image
                                 src={urlFor(
                                   subCourse.mainImage || {

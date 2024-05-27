@@ -45,21 +45,8 @@ export default function Nav() {
   return (
     <nav className={`fixed z-50 w-full py-4 backdrop-blur`}>
       <Container className='flex items-center justify-between text-lg font-semibold tracking-wide'>
-        <Link href={'/'} className='font-solaris text-myBlack text-3xl'>
-          <div>
-            <Image
-              src={'/logo.png'}
-              alt='logo'
-              sizes='100vw'
-              style={{
-                width: '60px',
-                height: '60px',
-              }}
-              width={500}
-              height={500}
-              priority={true}
-            />
-          </div>
+        <Link href={'/'} className='font-solaris text-myOrange text-3xl'>
+          IN3
         </Link>
         <ul className='hidden gap-8 md:flex'>
           {navLinks.map((link, index) => (
