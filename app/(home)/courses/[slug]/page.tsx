@@ -13,6 +13,8 @@ import { urlFor } from '@/utils/sanity/client'
 import Image from 'next/image'
 import { getAllCourses, getCourse } from '../actions/actions'
 
+export const revalidate = 60
+
 export async function generateStaticParams() {
   const courses = await getAllCourses()
 
