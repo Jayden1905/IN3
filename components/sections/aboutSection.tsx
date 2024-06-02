@@ -15,11 +15,6 @@ export default function AboutSection({}) {
                     <Image
                       src='/learning_model-Photoroom.png'
                       alt='about_robo'
-                      sizes='100vw'
-                      style={{
-                        width: '450px',
-                        height: '550px',
-                      }}
                       width={450}
                       height={550}
                     />
@@ -62,10 +57,6 @@ export default function AboutSection({}) {
                     src='/learning_model.jpeg'
                     alt='about_robo'
                     sizes='100vw'
-                    style={{
-                      width: '400px',
-                      height: '450px',
-                    }}
                     width={400}
                     height={450}
                   />

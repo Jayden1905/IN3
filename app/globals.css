@@ -7,4 +7,9 @@
     font-family: 'Solaris';
     src: url('../public/Solaris.ttf');
   }
+
+  @font-face {
+    font-family: 'SF-Pro';
+    src: url('../public/SF-Pro.ttf');
+  }
 }

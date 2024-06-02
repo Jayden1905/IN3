@@ -12,6 +12,7 @@ const config = {
   theme: {
     fontFamily: {
       solaris: ['Solaris', 'sans-serif'],
+      sfpro: ['SF-Pro', 'sans-serif'],
     },
     container: {
       center: true,

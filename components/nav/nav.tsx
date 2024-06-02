@@ -1,16 +1,17 @@
 'use client'
-import Container from '../layout/container'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { IoMdArrowDropdown } from 'react-icons/io'
-import { HiMenuAlt2 } from 'react-icons/hi'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
+import { HiMenuAlt2 } from 'react-icons/hi'
+import { IoMdArrowDropdown } from 'react-icons/io'
+import Container from '../layout/container'
+import { useEffect, useState } from 'react'
 
 type NavLink = {
   name: string
@@ -41,9 +42,24 @@ const navLinks: NavLink[] = [
 
 export default function Nav() {
   const pathname = usePathname()
+  const [navBar, setNavBar] = useState(false)
+
+  function changeBackground() {
+    if (window.scrollY >= 30) {
+      setNavBar(true)
+    } else {
+      setNavBar(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', changeBackground)
+  }, [])
 
   return (
-    <nav className={`fixed z-50 w-full py-4 backdrop-blur`}>
+    <nav
+      className={`fixed z-50 w-full py-4 ${navBar ? 'bg-white shadow-md' : ''} transition-all duration-300 ease-in-out`}
+    >
       <Container className='flex items-center justify-between text-lg font-semibold tracking-wide'>
         <Link href={'/'} className='font-solaris text-myOrange text-3xl'>
           IN3

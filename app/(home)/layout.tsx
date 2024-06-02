@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <>
       <Nav />
-      <div className="pt-24 md:bottom-20">
+      <div className='pt-20 md:bottom-20'>
         <main>{children}</main>
       </div>
       <Footer />

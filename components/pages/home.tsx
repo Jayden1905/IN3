@@ -46,7 +46,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
         <section className='flex flex-col gap-4'>
           <h1
             style={{ wordSpacing: '0.3rem' }}
-            className={`font-sfpro text-center text-5xl font-bold leading-[3.5rem] md:text-8xl`}
+            className={`font-sfpro text-5xl font-bold leading-[3.5rem] md:text-8xl`}
           >
             Become The Best At <span className='text-myOrange'>Coding.</span>
           </h1>
