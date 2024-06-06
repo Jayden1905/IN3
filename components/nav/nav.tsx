@@ -47,7 +47,9 @@ export default function Nav() {
   const pathname = usePathname()
   const [navBar, setNavBar] = useState(false)
   const [initialRegionPath, setInitialRegionPath] = useState('')
-  const region = fetch('https://ipinfo.io/json').then((res) => res.json())
+  const region = fetch('https://ipinfo.io/json?token=996bb0edca1ff4').then(
+    (res) => res.json(),
+  )
 
   useEffect(() => {
     region.then((data) => {
