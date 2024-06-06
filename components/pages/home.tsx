@@ -1,11 +1,8 @@
 'use client'
-
 import { urlFor } from '@/utils/sanity/client'
 import { CoursesType } from '@/utils/types'
-import Lenis from 'lenis'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 import FeaturedCard from '../cards/featuredCard'
 import Container from '../layout/container'
 import AboutSection from '../sections/aboutSection'
@@ -13,33 +10,6 @@ import PotentialSection from '../sections/potentialSection'
 import { AspectRatio } from '../ui/aspect-ratio'
 
 export default function HomePage({ courses }: { courses: CoursesType[] }) {
-  const [mute, setMute] = useState<boolean>(true)
-
-  const iframeRef = useRef<HTMLIFrameElement>(null)
-
-  const url = mute
-    ? 'https://www.youtube.com/embed/5fFtcLgmttE?autoplay=1&mute=1&loop=1&playlist=5fFtcLgmttE'
-    : 'https://www.youtube.com/embed/5fFtcLgmttE?autoplay=1&mute=0&loop=1&playlist=5fFtcLgmttE'
-
-  useEffect(() => {
-    const lenis = new Lenis()
-
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
-
-    // mute the video
-    if (iframeRef.current) {
-      iframeRef.current.contentWindow?.postMessage(
-        '{"event":"command","func":"mute","args":""}',
-        '*',
-      )
-    }
-  }, [])
-
   return (
     <div>
       <Container className='mb-20'>
@@ -114,20 +84,12 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
       </div>
       <AboutSection />
       <Container>
-        <div
-          className={`h-full w-full cursor-pointer`}
-          onClick={() => {
-            setMute(!mute)
-          }}
-        >
-          <iframe
-            className='video-frame-shadow pointer-events-none h-[300px] w-full object-cover md:h-[800px]'
-            src={url}
-            title='in3labs Holiday Workshops'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
-            ref={iframeRef}
-          ></iframe>
-        </div>
+        <iframe
+          className='video-frame-shadow h-[300px] w-full object-cover md:h-[800px]'
+          src={'https://www.youtube.com/embed/5fFtcLgmttE'}
+          title='in3labs Holiday Workshops'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
+        ></iframe>
       </Container>
 
       <Container className='mb-10 mt-16 md:mb-0'>

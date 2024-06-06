@@ -30,7 +30,10 @@ const navLinks: NavLink[] = [
     href: '/courses',
     subLinks: [
       { name: 'Super Tech Kids', href: '/courses/super-tech-kids' },
-      { name: 'Creative Tech Junior', href: '/courses/creative-tech-junior' },
+      {
+        name: 'Creative Tech Junior',
+        href: '/courses/creative-tech-junior',
+      },
       { name: 'Maker Tech Pro', href: '/courses/maker-tech-pro' },
       { name: 'First Tech Camp', href: '/courses/first-tech-camp' },
       { name: 'Stem-Dsa', href: '/courses/stem-dsa' },
@@ -43,6 +46,16 @@ const navLinks: NavLink[] = [
 export default function Nav() {
   const pathname = usePathname()
   const [navBar, setNavBar] = useState(false)
+  const [initialRegionPath, setInitialRegionPath] = useState('')
+  const region = fetch('https://ipinfo.io/json').then((res) => res.json())
+
+  useEffect(() => {
+    region.then((data) => {
+      data.country === 'US'
+        ? setInitialRegionPath('/us')
+        : setInitialRegionPath('/sg')
+    })
+  }, [])
 
   function changeBackground() {
     if (window.scrollY >= 30) {
@@ -58,10 +71,13 @@ export default function Nav() {
 
   return (
     <nav
-      className={`fixed z-50 w-full py-4 ${navBar ? 'bg-white shadow-md' : ''} transition-all duration-300 ease-in-out`}
+      className={`fixed z-50 w-full py-4 bg-white ${navBar ? 'shadow-md' : ''} transition-all duration-300 ease-in-out`}
     >
       <Container className='flex items-center justify-between text-lg font-semibold tracking-wide'>
-        <Link href={'/'} className='font-solaris text-myOrange text-3xl'>
+        <Link
+          href={initialRegionPath}
+          className='font-solaris text-myOrange text-3xl'
+        >
           IN3
         </Link>
         <ul className='hidden gap-8 md:flex'>
@@ -73,7 +89,7 @@ export default function Nav() {
               key={index}
             >
               {link.subLinks.length === 0 && (
-                <Link href={link.href}>{link.name}</Link>
+                <Link href={initialRegionPath + link.href}>{link.name}</Link>
               )}
               {link.subLinks.length > 0 && (
                 <DropdownMenu>
@@ -83,7 +99,11 @@ export default function Nav() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink, index) => (
-                      <Link key={index} href={subLink.href} className='group'>
+                      <Link
+                        key={index}
+                        href={initialRegionPath + subLink.href}
+                        className='group'
+                      >
                         <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
                           {subLink.name}
                         </DropdownMenuItem>
@@ -104,7 +124,9 @@ export default function Nav() {
               {navLinks.map((link, index) => (
                 <DropdownMenuItem className='text-lg' key={index}>
                   {link.subLinks.length === 0 && (
-                    <Link href={link.href}>{link.name}</Link>
+                    <Link href={initialRegionPath + link.href}>
+                      {link.name}
+                    </Link>
                   )}
                   {link.subLinks.length > 0 && (
                     <DropdownMenu>
@@ -116,7 +138,7 @@ export default function Nav() {
                         {link.subLinks.map((subLink, index) => (
                           <Link
                             key={index}
-                            href={subLink.href}
+                            href={initialRegionPath + subLink.href}
                             className='group'
                           >
                             <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>

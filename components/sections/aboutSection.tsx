@@ -10,13 +10,13 @@ export default function AboutSection({}) {
           <div className='pb-10 pt-4 md:pb-24'>
             <Container className='flex flex-col gap-10 md:gap-28'>
               <div className='flex flex-col items-center justify-between gap-10 md:flex-row'>
-                <div className='md:w-1/2'>
-                  <div className='image-frame-shadow hidden w-fit md:block'>
+                <div>
+                  <div className='relative hidden md:block w-[450px] h-[550px]'>
                     <Image
                       src='/learning_model-Photoroom.png'
-                      alt='about_robo'
-                      width={450}
-                      height={550}
+                      alt='learning_model'
+                      fill
+                      sizes='100%'
                     />
                   </div>
                 </div>
