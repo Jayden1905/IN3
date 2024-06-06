@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: ['robotics', 'coding', 'education', 'kids'],
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
