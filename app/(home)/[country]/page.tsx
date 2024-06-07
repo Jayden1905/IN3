@@ -18,6 +18,7 @@ async function getCourses(country: string) {
     mainImage,
   }
 `
+
   const data = await client.fetch<CoursesType[]>(query)
 
   return data
