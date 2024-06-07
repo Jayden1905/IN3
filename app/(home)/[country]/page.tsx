@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ['robotics', 'coding', 'education', 'kids'],
 }
 
-async function getCourses() {
+async function getCourses(country: string) {
   const query = `
   *[_type == "courses" && featured == true ] | order(createdAt asc) {
     title,
@@ -23,8 +23,14 @@ async function getCourses() {
   return data
 }
 
-export default async function Home() {
-  const courses = await getCourses()
+export default async function Home({
+  params,
+}: {
+  params: {
+    country: string
+  }
+}) {
+  const courses = await getCourses(params.country)
 
   return (
     <div>

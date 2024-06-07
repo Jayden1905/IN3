@@ -46,18 +46,6 @@ const navLinks: NavLink[] = [
 export default function Nav() {
   const pathname = usePathname()
   const [navBar, setNavBar] = useState(false)
-  const [initialRegionPath, setInitialRegionPath] = useState('')
-  const region = fetch('https://ipinfo.io/json?token=996bb0edca1ff4').then(
-    (res) => res.json(),
-  )
-
-  useEffect(() => {
-    region.then((data) => {
-      data.country === 'US'
-        ? setInitialRegionPath('/us')
-        : setInitialRegionPath('/sg')
-    })
-  }, [])
 
   function changeBackground() {
     if (window.scrollY >= 30) {
@@ -76,10 +64,7 @@ export default function Nav() {
       className={`fixed z-50 w-full py-4 bg-white ${navBar ? 'shadow-md' : ''} transition-all duration-300 ease-in-out`}
     >
       <Container className='flex items-center justify-between text-lg font-semibold tracking-wide'>
-        <Link
-          href={initialRegionPath}
-          className='font-solaris text-myOrange text-3xl'
-        >
+        <Link href={'/'} className='font-solaris text-myOrange text-3xl'>
           IN3
         </Link>
         <ul className='hidden gap-8 md:flex'>
@@ -91,7 +76,7 @@ export default function Nav() {
               key={index}
             >
               {link.subLinks.length === 0 && (
-                <Link href={initialRegionPath + link.href}>{link.name}</Link>
+                <Link href={link.href}>{link.name}</Link>
               )}
               {link.subLinks.length > 0 && (
                 <DropdownMenu>
@@ -101,11 +86,7 @@ export default function Nav() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink, index) => (
-                      <Link
-                        key={index}
-                        href={initialRegionPath + subLink.href}
-                        className='group'
-                      >
+                      <Link key={index} href={subLink.href} className='group'>
                         <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
                           {subLink.name}
                         </DropdownMenuItem>
@@ -126,9 +107,7 @@ export default function Nav() {
               {navLinks.map((link, index) => (
                 <DropdownMenuItem className='text-lg' key={index}>
                   {link.subLinks.length === 0 && (
-                    <Link href={initialRegionPath + link.href}>
-                      {link.name}
-                    </Link>
+                    <Link href={link.href}>{link.name}</Link>
                   )}
                   {link.subLinks.length > 0 && (
                     <DropdownMenu>
@@ -140,7 +119,7 @@ export default function Nav() {
                         {link.subLinks.map((subLink, index) => (
                           <Link
                             key={index}
-                            href={initialRegionPath + subLink.href}
+                            href={subLink.href}
                             className='group'
                           >
                             <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
