@@ -44,5 +44,11 @@ export default defineType({
       title: 'Age Group',
       type: 'string',
     }),
+    defineField({
+      name: 'modules',
+      title: 'Modules',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'module' } }],
+    }),
   ],
 })

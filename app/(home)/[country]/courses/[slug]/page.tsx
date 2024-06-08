@@ -12,6 +12,15 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { urlFor } from '@/utils/sanity/client'
 import Image from 'next/image'
 import { getAllCourses, getCourse } from '../actions/actions'
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 export const revalidate = 60
 
@@ -55,6 +64,7 @@ export default async function CoursePage({
 }) {
   const data = await getCourse(params.slug)
   const subCourses = data.subCourses
+  console.log(subCourses)
 
   return (
     <div>
@@ -134,6 +144,38 @@ export default async function CoursePage({
                                 {subCourse.description ||
                                   'No description provided for this course'}
                               </p>
+                              <Table>
+                                <TableCaption>
+                                  A list of Modules for this course and their
+                                  sessions.
+                                </TableCaption>
+                                <TableHeader>
+                                  <TableRow className='bg-neutral-200'>
+                                    <TableHead className='text-2xl font-semibold text-black'>
+                                      Modules
+                                    </TableHead>
+                                    <TableHead className='text-2xl font-semibold text-black'>
+                                      Est. no. sessions
+                                    </TableHead>
+                                  </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                  {subCourse.modules &&
+                                    subCourse.modules.map((module, i) => (
+                                      <TableRow
+                                        key={i}
+                                        className='bg-neutral-100'
+                                      >
+                                        <TableCell className='text-xl'>
+                                          {module.name}
+                                        </TableCell>
+                                        <TableCell className='text-xl'>
+                                          {module.sessions}
+                                        </TableCell>
+                                      </TableRow>
+                                    ))}
+                                </TableBody>
+                              </Table>
                               <div className='flex gap-6'>
                                 <Button
                                   type='button'

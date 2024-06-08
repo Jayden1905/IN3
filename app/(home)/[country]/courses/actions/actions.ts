@@ -14,7 +14,11 @@ export async function getCourse(slug: string) {
       mainImage,
       ageGroup,
       description,
-      bannerColor
+      bannerColor,
+      modules[]-> {
+        name,
+        sessions
+      }
     },
   }
   `

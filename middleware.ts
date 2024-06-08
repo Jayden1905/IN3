@@ -26,6 +26,11 @@ export async function middleware(request: NextRequest) {
     countryCode = 'sg' // Default to Singapore
   }
 
+  if (pathname.startsWith('/studio')) {
+    // don't redirect
+    return NextResponse.next()
+  }
+
   // Redirect if the pathname doesn't start with the country code
   if (!pathname.startsWith(`/${countryCode}`)) {
     const newUrl = new URL(`/${countryCode}${pathname}`, request.url)

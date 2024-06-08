@@ -10,6 +10,11 @@ export interface BlogPost {
   mainImage: SanityImageSource
 }
 
+export type ModuleType = {
+  name: string
+  sessions: string
+}
+
 export type CoursesType = {
   title: string
   slug: {
@@ -27,4 +32,5 @@ export type SubCoursesType = {
   bannerColor: string
   mainImage: SanityImageSource
   ageGroup: string
+  modules: ModuleType[]
 }
