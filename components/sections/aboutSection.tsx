@@ -1,6 +1,7 @@
 import Container from '@/components/layout/container'
 import Image from 'next/image'
 import { TiTick } from 'react-icons/ti'
+import LearningModel from '@/public/learning_model-Photoroom.png'
 
 export default function AboutSection({}) {
   return (
@@ -13,7 +14,7 @@ export default function AboutSection({}) {
                 <div>
                   <div className='relative hidden md:block w-[450px] h-[550px]'>
                     <Image
-                      src='/learning_model-Photoroom.png'
+                      src={LearningModel}
                       alt='learning_model'
                       fill
                       sizes='100%'

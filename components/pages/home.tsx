@@ -8,6 +8,7 @@ import Container from '../layout/container'
 import AboutSection from '../sections/aboutSection'
 import PotentialSection from '../sections/potentialSection'
 import { AspectRatio } from '../ui/aspect-ratio'
+import KidWithVr from '@/public/kid_with_vr-Photoroom.png'
 
 export default function HomePage({ courses }: { courses: CoursesType[] }) {
   return (
@@ -22,7 +23,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
           </h1>
           <AspectRatio ratio={4 / 2.4} className='mt-5'>
             <Image
-              src='/kid_with_vr-Photoroom.png'
+              src={KidWithVr}
               alt='Image'
               className='rounded-md object-cover'
               fill
