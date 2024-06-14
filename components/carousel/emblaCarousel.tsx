@@ -11,6 +11,11 @@ import useEmblaCarousel from 'embla-carousel-react'
 import React, { useCallback, useEffect, useRef } from 'react'
 import { DotButton, useDotButton } from './emblaCarouselDotButton'
 import AutoPlay from 'embla-carousel-autoplay'
+import {
+  NextButton,
+  PrevButton,
+  usePrevNextButtons,
+} from './emblaCarouselArrowButton'
 
 const TWEEN_FACTOR_BASE = 0.2
 
@@ -29,6 +34,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi)
+
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi)
 
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
     tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
@@ -116,6 +128,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       </div>
 
       <div className='embla__controls'>
+        {/*
+        <div className='embla__buttons'>
+          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+        </div>
+        */}
+
         <div className='embla__dots'>
           {scrollSnaps.map((_, index) => (
             <DotButton
