@@ -18,7 +18,8 @@ export async function getCourse(slug: string) {
       modules[]-> {
         name,
         sessions
-      }
+      },
+      carouselImages[]
     },
   }
   `

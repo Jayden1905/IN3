@@ -21,6 +21,9 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import '@/components/carousel/embla.css'
+import EmblaCarousel from '@/components/carousel/emblaCarousel'
+import { EmblaOptionsType } from 'embla-carousel'
 
 export const revalidate = 60
 
@@ -64,7 +67,12 @@ export default async function CoursePage({
 }) {
   const data = await getCourse(params.slug)
   const subCourses = data.subCourses
-  console.log(subCourses)
+
+  const OPTIONS: EmblaOptionsType = {
+    dragFree: true,
+    loop: true,
+    align: 'start',
+  }
 
   return (
     <div>
@@ -124,21 +132,16 @@ export default async function CoursePage({
                               course.
                             </DialogDescription>
                           </DialogHeader>
-                          <div className='flex flex-col gap-10'>
-                            <div className='w-full relative h-[300px]'>
-                              <Image
-                                src={urlFor(
-                                  subCourse.mainImage || {
-                                    asset: { _ref: '' },
-                                  },
-                                ).url()}
-                                alt='1'
-                                sizes='(max-width: 28rem) 28rem, 100vw'
-                                fill
-                                className='object-cover rounded-lg border border-black'
-                                priority
-                              />
-                            </div>
+                          <div className='flex flex-col'>
+                            {subCourse.carouselImages &&
+                              subCourse.carouselImages.length > 0 && (
+                                <div>
+                                  <EmblaCarousel
+                                    slides={subCourse.carouselImages}
+                                    options={OPTIONS}
+                                  />
+                                </div>
+                              )}
                             <div className='flex h-full flex-col justify-between gap-10'>
                               <p className='text-xl'>
                                 {subCourse.description ||

@@ -33,4 +33,5 @@ export type SubCoursesType = {
   mainImage: SanityImageSource
   ageGroup: string
   modules: ModuleType[]
+  carouselImages: SanityImageSource[]
 }
