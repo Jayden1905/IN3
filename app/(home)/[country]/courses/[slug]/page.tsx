@@ -121,83 +121,87 @@ export default async function CoursePage({
                       <DialogTrigger asChild>
                         <Button className='text-lg'>Learn More</Button>
                       </DialogTrigger>
-                      <DialogContent className='w-full h-full p-2 sm:p-5 pt-10 sm:h-fit rounded-lg sm:max-w-4xl'>
-                        <ScrollArea>
-                          <DialogHeader>
-                            <DialogTitle className='text-3xl'>
-                              {subCourse.title}
-                            </DialogTitle>
-                            <DialogDescription className='text-lg'>
-                              Kids with age {subCourse.ageGroup} can attend this
-                              course.
-                            </DialogDescription>
-                          </DialogHeader>
-                          <div className='flex flex-col'>
-                            {subCourse.carouselImages &&
-                              subCourse.carouselImages.length > 0 && (
-                                <div>
-                                  <EmblaCarousel
-                                    slides={subCourse.carouselImages}
-                                    options={OPTIONS}
-                                  />
-                                </div>
-                              )}
-                            <div className='flex h-full flex-col justify-between gap-10'>
-                              <p className='text-xl'>
-                                {subCourse.description ||
-                                  'No description provided for this course'}
-                              </p>
-                              <Table>
-                                <TableCaption>
-                                  A list of Modules for this course and their
-                                  sessions.
-                                </TableCaption>
-                                <TableHeader>
-                                  <TableRow className='bg-neutral-200'>
-                                    <TableHead className='text-2xl font-semibold text-black'>
-                                      Modules
-                                    </TableHead>
-                                    <TableHead className='text-2xl font-semibold text-black'>
-                                      Est. no. sessions
-                                    </TableHead>
-                                  </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                  {subCourse.modules &&
-                                    subCourse.modules.map((module, i) => (
-                                      <TableRow
-                                        key={i}
-                                        className='bg-neutral-100'
-                                      >
-                                        <TableCell className='text-xl'>
-                                          {module.name}
-                                        </TableCell>
-                                        <TableCell className='text-xl'>
-                                          {module.sessions}
-                                        </TableCell>
-                                      </TableRow>
-                                    ))}
-                                </TableBody>
-                              </Table>
-                              <div className='flex gap-6'>
-                                <Button
-                                  type='button'
-                                  size={'lg'}
-                                  className='bg-myOrange hover:bg-myOrange text-lg text-white hover:text-white'
-                                >
-                                  Book a Trial
-                                </Button>
-                                <Button
-                                  className='text-lg'
-                                  type='button'
-                                  size={'lg'}
-                                >
-                                  Get the Course
-                                </Button>
+                      <DialogContent
+                        style={{
+                          scrollbarWidth: 'none',
+                          msOverflowStyle: 'none',
+                        }}
+                        className='w-full overflow-y-scroll max-h-screen p-2 sm:h-fit rounded-lg sm:max-w-4xl'
+                      >
+                        <DialogHeader>
+                          <DialogTitle className='text-3xl'>
+                            {subCourse.title}
+                          </DialogTitle>
+                          <DialogDescription className='text-lg'>
+                            Kids with age {subCourse.ageGroup} can attend this
+                            course.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className='flex flex-col'>
+                          {subCourse.carouselImages &&
+                            subCourse.carouselImages.length > 0 && (
+                              <div>
+                                <EmblaCarousel
+                                  slides={subCourse.carouselImages}
+                                  options={OPTIONS}
+                                />
                               </div>
+                            )}
+                          <div className='flex h-full flex-col justify-between gap-10'>
+                            <p className='text-xl'>
+                              {subCourse.description ||
+                                'No description provided for this course'}
+                            </p>
+                            <Table>
+                              <TableCaption>
+                                A list of Modules for this course and their
+                                sessions.
+                              </TableCaption>
+                              <TableHeader>
+                                <TableRow className='bg-neutral-200'>
+                                  <TableHead className='text-2xl font-semibold text-black'>
+                                    Modules
+                                  </TableHead>
+                                  <TableHead className='text-2xl font-semibold text-black'>
+                                    Est. no. sessions
+                                  </TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {subCourse.modules &&
+                                  subCourse.modules.map((module, i) => (
+                                    <TableRow
+                                      key={i}
+                                      className='bg-neutral-100'
+                                    >
+                                      <TableCell className='text-xl'>
+                                        {module.name}
+                                      </TableCell>
+                                      <TableCell className='text-xl'>
+                                        {module.sessions}
+                                      </TableCell>
+                                    </TableRow>
+                                  ))}
+                              </TableBody>
+                            </Table>
+                            <div className='flex gap-6'>
+                              <Button
+                                type='button'
+                                size={'lg'}
+                                className='bg-myOrange hover:bg-myOrange text-lg text-white hover:text-white'
+                              >
+                                Book a Trial
+                              </Button>
+                              <Button
+                                className='text-lg'
+                                type='button'
+                                size={'lg'}
+                              >
+                                Get the Course
+                              </Button>
                             </div>
                           </div>
-                        </ScrollArea>
+                        </div>
                       </DialogContent>
                     </Dialog>
                   </div>

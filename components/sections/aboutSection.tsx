@@ -55,7 +55,7 @@ export default function AboutSection({}) {
                 </div>
                 <div className='border-dark image-frame-shadow block w-fit border-2 md:hidden'>
                   <Image
-                    src='/learning_model.jpeg'
+                    src={LearningModel}
                     alt='about_robo'
                     sizes='100vw'
                     width={400}
