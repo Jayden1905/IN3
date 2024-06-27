@@ -9,11 +9,13 @@ export default defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'sessions',
       title: 'Sessions',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 })

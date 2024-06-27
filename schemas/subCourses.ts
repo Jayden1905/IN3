@@ -1,23 +1,5 @@
 import { defineField, defineType } from 'sanity'
 
-const moduleType = defineType({
-  name: 'module',
-  title: 'Module',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'sessions',
-      title: 'Sessions',
-      type: 'string',
-    }),
-  ],
-})
-
 export default defineType({
   name: 'subCourses',
   title: 'Sub Courses',
@@ -27,16 +9,19 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'bannerColor',
       title: 'Banner Color',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
@@ -45,12 +30,14 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'carouselImages',
       title: 'Carousel Images',
       type: 'array',
       of: [{ type: 'image' }],
+      validation: (Rule) => Rule.min(2),
     }),
     defineField({
       name: 'createdAt',
@@ -67,6 +54,7 @@ export default defineType({
       name: 'ageGroup',
       title: 'Age Group',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'modules',

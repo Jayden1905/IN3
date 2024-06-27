@@ -9,6 +9,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -28,6 +29,7 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
@@ -36,6 +38,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'createdAt',
@@ -52,12 +55,14 @@ export default defineType({
       name: 'ageGroup',
       title: 'Age Group',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'subCourses',
       title: 'Sub Courses',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'subCourses' } }],
+      validation: (Rule) => Rule.required().min(1),
     }),
   ],
 })

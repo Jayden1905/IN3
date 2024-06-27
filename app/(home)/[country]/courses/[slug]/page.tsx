@@ -1,3 +1,5 @@
+import '@/components/carousel/embla.css'
+import EmblaCarousel from '@/components/carousel/emblaCarousel'
 import Container from '@/components/layout/container'
 import { Button } from '@/components/ui/button'
 import {
@@ -8,10 +10,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { urlFor } from '@/utils/sanity/client'
-import Image from 'next/image'
-import { getAllCourses, getCourse } from '../actions/actions'
 import {
   Table,
   TableBody,
@@ -21,9 +19,10 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import '@/components/carousel/embla.css'
-import EmblaCarousel from '@/components/carousel/emblaCarousel'
+import { urlFor } from '@/utils/sanity/client'
 import { EmblaOptionsType } from 'embla-carousel'
+import Image from 'next/image'
+import { getAllCourses, getCourse } from '../actions/actions'
 
 export const revalidate = 60
 
