@@ -25,6 +25,7 @@ type NavLink = {
 const navLinks: NavLink[] = [
   { name: 'Home', href: '/', subLinks: [] },
   { name: 'About Us', href: '/about-us', subLinks: [] },
+  { name: 'Join Us', href: '/join-us', subLinks: [] },
   {
     name: 'Courses',
     href: '/courses',
@@ -61,13 +62,15 @@ export default function Nav() {
 
   return (
     <nav
-      className={`fixed z-50 w-full py-4 bg-white ${navBar ? 'shadow-md' : ''} transition-all duration-300 ease-in-out`}
+      className={`fixed z-50 w-full bg-white py-4 ${
+        navBar ? 'shadow-md' : ''
+      } transition-all duration-300 ease-in-out`}
     >
-      <Container className='flex items-center justify-between text-lg font-semibold tracking-wide'>
-        <Link href={'/'} className='font-solaris text-myOrange text-3xl'>
+      <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
+        <Link href={'/'} className="font-solaris text-myOrange text-3xl">
           IN3
         </Link>
-        <ul className='hidden gap-8 md:flex'>
+        <ul className="hidden gap-8 md:flex">
           {navLinks.map((link, index) => (
             <li
               className={`${
@@ -80,14 +83,14 @@ export default function Nav() {
               )}
               {link.subLinks.length > 0 && (
                 <DropdownMenu>
-                  <DropdownMenuTrigger className='flex items-center justify-center gap-2 outline-none'>
+                  <DropdownMenuTrigger className="flex items-center justify-center gap-2 outline-none">
                     <span>{link.name}</span>
                     <IoMdArrowDropdown />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.subLinks.map((subLink, index) => (
-                      <Link key={index} href={subLink.href} className='group'>
-                        <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
+                      <Link key={index} href={subLink.href} className="group">
+                        <DropdownMenuItem className="group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white">
                           {subLink.name}
                         </DropdownMenuItem>
                       </Link>
@@ -98,20 +101,20 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <div className='block md:hidden'>
+        <div className="block md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <HiMenuAlt2 className='h-7 w-7 outline-none' />
+              <HiMenuAlt2 className="h-7 w-7 outline-none" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {navLinks.map((link, index) => (
-                <DropdownMenuItem className='text-lg' key={index}>
+                <DropdownMenuItem className="text-lg" key={index}>
                   {link.subLinks.length === 0 && (
                     <Link href={link.href}>{link.name}</Link>
                   )}
                   {link.subLinks.length > 0 && (
                     <DropdownMenu>
-                      <DropdownMenuTrigger className='flex items-center justify-center gap-2 outline-none'>
+                      <DropdownMenuTrigger className="flex items-center justify-center gap-2 outline-none">
                         <span>{link.name}</span>
                         <IoMdArrowDropdown />
                       </DropdownMenuTrigger>
@@ -120,9 +123,9 @@ export default function Nav() {
                           <Link
                             key={index}
                             href={subLink.href}
-                            className='group'
+                            className="group"
                           >
-                            <DropdownMenuItem className='group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white'>
+                            <DropdownMenuItem className="group-hover:bg-myOrange cursor-pointer text-lg font-semibold group-hover:text-white">
                               {subLink.name}
                             </DropdownMenuItem>
                           </Link>

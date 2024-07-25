@@ -31,6 +31,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  if (pathname.startsWith('/api')) {
+    // don't redirect
+    return NextResponse.next()
+  }
+
   // Redirect if the pathname doesn't start with the country code
   if (!pathname.startsWith(`/${countryCode}`)) {
     const newUrl = new URL(`/${countryCode}${pathname}`, request.url)

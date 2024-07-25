@@ -38,7 +38,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
             <div>
               <Button
                 size={'lg'}
-                className="p-6 text-lg uppercase tracking-wider"
+                className="bg-myOrange p-6 text-lg uppercase tracking-wider hover:bg-orange-600"
               >
                 get your free trial
               </Button>
@@ -89,7 +89,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
           <h1
             className={`font-sfpro text-center text-5xl font-bold tracking-wide md:text-8xl`}
           >
-            Featured Courses
+            <span className="text-myOrange">Featured</span> Courses
           </h1>
           <div className="mt-16 flex flex-wrap items-center justify-center gap-6">
             {courses.map((course, index) => (
@@ -181,7 +181,10 @@ const SubFormSubmitButton = () => {
           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
         </Button>
       ) : (
-        <Button className="bg-myOrange p-6 text-lg uppercase hover:bg-orange-600">
+        <Button
+          name="subscribe_button"
+          className="bg-myOrange p-6 text-lg uppercase hover:bg-orange-600"
+        >
           Subscribe
         </Button>
       )}

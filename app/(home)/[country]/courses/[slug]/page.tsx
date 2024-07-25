@@ -75,68 +75,68 @@ export default async function CoursePage({
 
   return (
     <div>
-      <div className='flex h-full w-full flex-col items-center gap-6 bg-[#4e374f] p-10'>
+      <div className="flex h-full w-full flex-col items-center gap-6 bg-[#4e374f] p-10">
         <div>
-          <h1 className='text-center text-4xl font-bold text-white md:text-8xl'>
+          <h1 className="text-center text-4xl font-bold text-white md:text-8xl">
             {data.title}
           </h1>
-          <p className='mt-4 text-center text-lg tracking-wide text-white md:text-xl'>
+          <p className="mt-4 text-center text-lg tracking-wide text-white md:text-2xl">
             {data.description}
           </p>
         </div>
       </div>
-      <Container className='mt-10'>
-        <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+      <Container className="mt-10">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {subCourses &&
             subCourses.map((subCourse, i) => (
               <div
                 key={i}
-                className='flex w-full flex-col gap-16 rounded-xl border border-l-[8px] bg-white p-5 md:flex-row'
+                className="flex w-full flex-col gap-16 rounded-xl border border-l-[8px] bg-white p-5 md:flex-row"
                 style={{ borderLeftColor: subCourse.bannerColor }}
               >
-                <div className='flex w-full flex-col gap-4'>
-                  <h1 className='text-3xl font-bold'>{subCourse.title}</h1>
-                  <div className='relative h-72 w-full overflow-hidden rounded-lg border-2 border-black'>
+                <div className="flex w-full flex-col gap-4">
+                  <h1 className="text-3xl font-bold">{subCourse.title}</h1>
+                  <div className="relative h-72 w-full overflow-hidden rounded-lg border-2 border-black">
                     <Image
-                      className='h-full w-full object-cover'
+                      className="h-full w-full object-cover"
                       src={urlFor(
-                        subCourse.mainImage || { asset: { _ref: '' } },
+                        subCourse.mainImage || { asset: { _ref: '' } }
                       ).url()}
-                      alt='1'
+                      alt="1"
                       fill
-                      sizes='(min-width: 640px) 640px, 100vw'
+                      sizes="(min-width: 640px) 640px, 100vw"
                       priority
                     />
                   </div>
-                  <p className='mt-auto text-xl font-bold tracking-wide'>
+                  <p className="mt-auto text-xl font-bold tracking-wide">
                     Age:{' '}
-                    <span className='text-myOrange'>{subCourse.ageGroup}</span>
+                    <span className="text-myOrange">{subCourse.ageGroup}</span>
                   </p>
-                  <div className='flex gap-4'>
-                    <Button className='bg-myOrange hover:bg-myOrange text-lg text-white hover:text-white'>
+                  <div className="flex gap-4">
+                    <Button className="bg-myOrange hover:bg-myOrange text-lg text-white hover:text-white">
                       Book a Trial
                     </Button>
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button className='text-lg'>Learn More</Button>
+                        <Button className="text-lg">Learn More</Button>
                       </DialogTrigger>
                       <DialogContent
                         style={{
                           scrollbarWidth: 'none',
                           msOverflowStyle: 'none',
                         }}
-                        className='w-full overflow-y-scroll max-h-screen p-2 sm:h-fit rounded-lg sm:max-w-4xl'
+                        className="max-h-screen w-full overflow-y-scroll rounded-lg p-2 sm:h-fit sm:max-w-4xl"
                       >
                         <DialogHeader>
-                          <DialogTitle className='text-3xl'>
+                          <DialogTitle className="text-3xl">
                             {subCourse.title}
                           </DialogTitle>
-                          <DialogDescription className='text-lg'>
+                          <DialogDescription className="text-lg">
                             Kids with age {subCourse.ageGroup} can attend this
                             course.
                           </DialogDescription>
                         </DialogHeader>
-                        <div className='flex flex-col'>
+                        <div className="flex flex-col">
                           {subCourse.carouselImages &&
                             subCourse.carouselImages.length > 0 && (
                               <div>
@@ -146,8 +146,8 @@ export default async function CoursePage({
                                 />
                               </div>
                             )}
-                          <div className='flex h-full flex-col justify-between gap-10'>
-                            <p className='text-xl'>
+                          <div className="flex h-full flex-col justify-between gap-10">
+                            <p className="text-xl">
                               {subCourse.description ||
                                 'No description provided for this course'}
                             </p>
@@ -157,11 +157,11 @@ export default async function CoursePage({
                                 sessions.
                               </TableCaption>
                               <TableHeader>
-                                <TableRow className='bg-neutral-200'>
-                                  <TableHead className='text-2xl font-semibold text-black'>
+                                <TableRow className="bg-neutral-200">
+                                  <TableHead className="text-2xl font-semibold text-black">
                                     Modules
                                   </TableHead>
-                                  <TableHead className='text-2xl font-semibold text-black'>
+                                  <TableHead className="text-2xl font-semibold text-black">
                                     Est. no. sessions
                                   </TableHead>
                                 </TableRow>
@@ -171,29 +171,29 @@ export default async function CoursePage({
                                   subCourse.modules.map((module, i) => (
                                     <TableRow
                                       key={i}
-                                      className='bg-neutral-100'
+                                      className="bg-neutral-100"
                                     >
-                                      <TableCell className='text-xl'>
+                                      <TableCell className="text-xl">
                                         {module.name}
                                       </TableCell>
-                                      <TableCell className='text-xl'>
+                                      <TableCell className="text-xl">
                                         {module.sessions}
                                       </TableCell>
                                     </TableRow>
                                   ))}
                               </TableBody>
                             </Table>
-                            <div className='flex gap-6'>
+                            <div className="flex gap-6">
                               <Button
-                                type='button'
+                                type="button"
                                 size={'lg'}
-                                className='bg-myOrange hover:bg-myOrange text-lg text-white hover:text-white'
+                                className="bg-myOrange hover:bg-myOrange text-lg text-white hover:text-white"
                               >
                                 Book a Trial
                               </Button>
                               <Button
-                                className='text-lg'
-                                type='button'
+                                className="text-lg"
+                                type="button"
                                 size={'lg'}
                               >
                                 Get the Course
