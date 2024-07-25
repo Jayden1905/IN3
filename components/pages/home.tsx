@@ -57,9 +57,11 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
       </Container>
       <Container className="mb-10 flex w-full flex-col items-center gap-4 md:flex-row">
         <div className="flex w-full gap-4">
-          <MdMailOutline className="border-myOrange text-myOrange h-16 w-16 rounded-full border-[3px] p-2" />
+          <div>
+            <MdMailOutline className="border-myOrange text-myOrange h-16 w-16 rounded-full border-[3px] p-2" />
+          </div>
           <div className="w-full">
-            <h1 className="text-myOrange text-3xl font-semibold uppercase">
+            <h1 className="text-myOrange text-3xl font-bold uppercase">
               hello!
             </h1>
             <p className="text-lg tracking-wider">

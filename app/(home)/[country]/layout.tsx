@@ -1,3 +1,4 @@
+import WhatsappSupport from '@/components/customerSupport/whatsapp'
 import Footer from '@/components/layout/footer'
 import Nav from '@/components/nav/nav'
 
@@ -9,7 +10,8 @@ export default function RootLayout({
   return (
     <>
       <Nav />
-      <div className='pt-20 md:bottom-20'>
+      <WhatsappSupport />
+      <div className="pt-20 md:bottom-20">
         <main>{children}</main>
       </div>
       <Footer />
