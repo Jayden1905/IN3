@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 }
 
 async function getFeaturedCourses(country: string) {
+  'use server'
+
   const query = `
   *[_type == "courses" && featured == true ] | order(createdAt asc) {
     title,
