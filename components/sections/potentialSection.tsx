@@ -38,7 +38,9 @@ export default function PotentialSection({}) {
                 width={100}
                 height={100}
               />
-              <h1 className={`mb-1 text-2xl font-bold`}>Education</h1>
+              <h1 className={`text-myOrange mb-1 text-2xl font-bold`}>
+                Education
+              </h1>
               <p className="text-center tracking-wider">
                 Equipping youth with essential <br /> STEM skills for future
                 success.
@@ -52,7 +54,9 @@ export default function PotentialSection({}) {
                 width={100}
                 height={100}
               />
-              <h1 className={`mb-1 text-2xl font-bold`}>Fostering</h1>
+              <h1 className={`text-myOrange mb-1 text-2xl font-bold`}>
+                Fostering
+              </h1>
               <p className="text-center tracking-wider">
                 Nurturing tech creativity to empower <br /> young innovative
                 thinkers.
@@ -66,7 +70,9 @@ export default function PotentialSection({}) {
                 width={100}
                 height={100}
               />
-              <h1 className={`mb-1 text-2xl font-bold`}>Cultivating</h1>
+              <h1 className={`text-myOrange mb-1 text-2xl font-bold`}>
+                Cultivating
+              </h1>
               <p className="text-center tracking-wider">
                 Instilling resilience for cultivating <br /> inventive minds and
                 problem-solvers.
@@ -80,7 +86,9 @@ export default function PotentialSection({}) {
                 width={100}
                 height={100}
               />
-              <h1 className={`mb-1 text-2xl font-bold`}>Developing</h1>
+              <h1 className={`text-myOrange mb-1 text-2xl font-bold`}>
+                Developing
+              </h1>
               <p className="text-center tracking-wider">
                 Shaping innovative leaders, contributing <br /> to our
                 nation&apos;s progress.
