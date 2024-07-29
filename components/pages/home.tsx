@@ -49,7 +49,8 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
               alt="Image"
               className="rounded-md object-cover"
               fill
-              priority
+              blurDataURL="/kid_with_vr-Photoroom.png"
+              placeholder="blur"
             />
           </div>
         </section>

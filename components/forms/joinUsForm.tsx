@@ -41,7 +41,10 @@ export default function JoinUsForm() {
           Role<span className="text-myOrange">*</span>
         </Label>
         <Select name="role">
-          <SelectTrigger className="h-12 w-full text-lg">
+          <SelectTrigger
+            aria-label="role selector"
+            className="h-12 w-full text-lg"
+          >
             <SelectValue placeholder="Select a role" />
           </SelectTrigger>
           <SelectContent>

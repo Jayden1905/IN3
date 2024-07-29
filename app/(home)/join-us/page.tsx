@@ -1,6 +1,14 @@
 import JoinUsForm from '@/components/forms/joinUsForm'
 import Container from '@/components/layout/container'
 
+export const metadata = {
+  title: 'Join Us',
+  description: 'Join our team and inspire future generations.',
+  keywords: ['join us', 'team', 'education', 'inspire'],
+}
+
+export const dynamic = 'force-static'
+
 export default function Page() {
   return (
     <>
