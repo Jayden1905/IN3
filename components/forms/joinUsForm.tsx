@@ -1,6 +1,5 @@
 'use client'
 
-import { joinUsFormAction } from '@/app/(home)/[country]/join-us/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useFormStatus } from 'react-dom'
@@ -15,6 +14,7 @@ import {
 } from '../ui/select'
 import { Textarea } from '../ui/textarea'
 import { ReloadIcon } from '@radix-ui/react-icons'
+import { joinUsFormAction } from '@/app/(home)/join-us/actions'
 
 export default function JoinUsForm() {
   return (

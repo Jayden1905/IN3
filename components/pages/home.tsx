@@ -1,6 +1,5 @@
 'use client'
 
-import KidWithVr from '@/public/kid_with_vr-Photoroom.png'
 import { subscribeFormAction } from '@/utils/actions'
 import { urlFor } from '@/utils/sanity/client'
 import { CoursesType } from '@/utils/types'
@@ -46,7 +45,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
           </div>
           <div className="relative h-[480px] w-full md:w-1/2">
             <Image
-              src={KidWithVr}
+              src={'/kid_with_vr-Photoroom.png'}
               alt="Image"
               className="rounded-md object-cover"
               fill

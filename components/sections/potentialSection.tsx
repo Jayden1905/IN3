@@ -1,10 +1,6 @@
 import Container from '@/components/layout/container'
 import Image from 'next/image'
 import { Button } from '../ui/button'
-import PotentialOne from '@/public/1.png'
-import PotentialTwo from '@/public/2.png'
-import PotentialThree from '@/public/3.png'
-import PotentialFour from '@/public/4.png'
 
 export default function PotentialSection({}) {
   return (
@@ -33,7 +29,7 @@ export default function PotentialSection({}) {
             <li className="flex flex-col items-center justify-center gap-2">
               <Image
                 className="h-auto w-auto"
-                src={PotentialOne}
+                src={'/1.png'}
                 alt="1"
                 width={100}
                 height={100}
@@ -49,7 +45,7 @@ export default function PotentialSection({}) {
             <li className="flex flex-col items-center justify-center gap-2">
               <Image
                 className="h-auto w-auto"
-                src={PotentialTwo}
+                src={'/2.png'}
                 alt="1"
                 width={100}
                 height={100}
@@ -65,7 +61,7 @@ export default function PotentialSection({}) {
             <li className="flex flex-col items-center justify-center gap-2">
               <Image
                 className="h-auto w-auto"
-                src={PotentialThree}
+                src={'/3.png'}
                 alt="1"
                 width={100}
                 height={100}
@@ -81,7 +77,7 @@ export default function PotentialSection({}) {
             <li className="flex flex-col items-center justify-center gap-2">
               <Image
                 className="h-auto w-auto"
-                src={PotentialFour}
+                src={'/4.png'}
                 alt="1"
                 width={100}
                 height={100}

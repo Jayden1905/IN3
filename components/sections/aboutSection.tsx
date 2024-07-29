@@ -1,7 +1,6 @@
 import Container from '@/components/layout/container'
 import Image from 'next/image'
 import { TiTick } from 'react-icons/ti'
-import LearningModel from '@/public/learning_model-Photoroom.png'
 
 export default function AboutSection({}) {
   return (
@@ -14,7 +13,7 @@ export default function AboutSection({}) {
                 <div>
                   <div className="relative hidden h-[550px] w-[450px] md:block">
                     <Image
-                      src={LearningModel}
+                      src={'/learning_model-Photoroom.png'}
                       alt="learning_model"
                       fill
                       sizes="100%"
@@ -55,7 +54,7 @@ export default function AboutSection({}) {
                 </div>
                 <div className="border-dark image-frame-shadow block w-fit border-2 md:hidden">
                   <Image
-                    src={LearningModel}
+                    src={'/learning_model-Photoroom.png'}
                     alt="about_robo"
                     sizes="100vw"
                     width={400}
