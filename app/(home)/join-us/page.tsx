@@ -1,7 +1,8 @@
 import JoinUsForm from '@/components/forms/joinUsForm'
 import Container from '@/components/layout/container'
+import { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Join Us',
   description: 'Join our team and inspire future generations.',
   keywords: ['join us', 'team', 'education', 'inspire'],

@@ -16,10 +16,8 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/logo_with_bg.png" sizes="any" />
-      </head>
       <body className={`${normalFont} bg-primary text-black`}>
+        <link rel="icon" href="./favicon.ico" sizes="any" />
         <main>{children}</main>
       </body>
     </html>
