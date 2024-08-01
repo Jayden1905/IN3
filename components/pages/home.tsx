@@ -49,6 +49,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
               alt="Image"
               className="rounded-md object-cover"
               fill
+              sizes="(min-width: 640px) 640px, 100vw"
               blurDataURL="/kid_with_vr-Photoroom.png"
               placeholder="blur"
             />
@@ -56,7 +57,7 @@ export default function HomePage({ courses }: { courses: CoursesType[] }) {
         </section>
       </Container>
       <Container className="mb-10 flex w-full flex-col items-center gap-4 md:flex-row">
-        <div className="flex w-full gap-4">
+        <div className="flex w-full items-center justify-center gap-4">
           <div>
             <MdMailOutline className="border-myOrange text-myOrange h-16 w-16 rounded-full border-[3px] p-2" />
           </div>

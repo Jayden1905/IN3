@@ -1,6 +1,17 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
+import nodemailer from 'nodemailer'
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+})
 
 export async function joinUsFormAction(formData: FormData) {
   const name = formData.get('name') as string
@@ -10,24 +21,19 @@ export async function joinUsFormAction(formData: FormData) {
   const message = formData.get('message') as string
 
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/email`,
-      {
-        method: 'POST',
-        body: JSON.stringify({ name, email, role, subject, message }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
+    await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: process.env.EMAIL,
+      subject: subject,
+      html: `
+            <h2>Sender Name: ${name}</h2>
+            <h2>Sender Email: ${email}</h2>
+            <h2>Role: ${role}</h2>
+            <p>${message}</p>
+        `,
+    })
 
-    if (!response.ok) {
-      throw new Error('Failed to send email')
-    }
-
-    if (response.ok) {
-      revalidatePath(`/join-us`)
-    }
+    revalidatePath('/join-us')
   } catch (err) {
     console.log(err)
   }

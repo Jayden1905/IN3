@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ['robotics', 'coding', 'education', 'kids'],
 }
 
-async function getFeaturedCourses(country: string) {
+async function getFeaturedCourses() {
   'use server'
 
   const query = `
@@ -26,14 +26,8 @@ async function getFeaturedCourses(country: string) {
   return data
 }
 
-export default async function Home({
-  params,
-}: {
-  params: {
-    country: string
-  }
-}) {
-  const courses = await getFeaturedCourses(params.country)
+export default async function Home() {
+  const courses = await getFeaturedCourses()
 
   return (
     <div>

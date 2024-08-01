@@ -1,7 +1,9 @@
 'use client'
 
+import { joinUsFormAction } from '@/app/(home)/join-us/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { ReloadIcon } from '@radix-ui/react-icons'
 import { useFormStatus } from 'react-dom'
 import { Label } from '../ui/label'
 import {
@@ -13,73 +15,71 @@ import {
   SelectValue,
 } from '../ui/select'
 import { Textarea } from '../ui/textarea'
-import { ReloadIcon } from '@radix-ui/react-icons'
-import { joinUsFormAction } from '@/app/(home)/join-us/actions'
 
 export default function JoinUsForm() {
   return (
-    <form action={joinUsFormAction} className="flex flex-col gap-4">
-      <section className="flex flex-col gap-2">
-        <Label htmlFor="name" className="text-lg">
-          Name<span className="text-myOrange">*</span>
+    <form action={joinUsFormAction} className='flex flex-col gap-4'>
+      <section className='flex flex-col gap-2'>
+        <Label htmlFor='name' className='text-lg'>
+          Name<span className='text-myOrange'>*</span>
         </Label>
         <Input
-          placeholder="Your Name"
+          placeholder='Your Name'
           required
-          name="name"
-          className="h-12 text-lg"
+          name='name'
+          className='h-12 text-lg'
         />
       </section>
-      <section className="flex flex-col gap-2">
-        <Label htmlFor="email" className="text-lg">
-          Email<span className="text-myOrange">*</span>
+      <section className='flex flex-col gap-2'>
+        <Label htmlFor='email' className='text-lg'>
+          Email<span className='text-myOrange'>*</span>
         </Label>
-        <Input placeholder="Your Email" name="email" className="h-12 text-lg" />
+        <Input placeholder='Your Email' name='email' className='h-12 text-lg' />
       </section>
-      <section className="flex flex-col gap-2">
-        <Label htmlFor="email" className="text-lg">
-          Role<span className="text-myOrange">*</span>
+      <section className='flex flex-col gap-2'>
+        <Label htmlFor='email' className='text-lg'>
+          Role<span className='text-myOrange'>*</span>
         </Label>
-        <Select name="role">
+        <Select name='role'>
           <SelectTrigger
-            aria-label="role selector"
-            className="h-12 w-full text-lg"
+            aria-label='role selector'
+            className='h-12 w-full text-lg'
           >
-            <SelectValue placeholder="Select a role" />
+            <SelectValue placeholder='Select a role' />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem className="text-lg" value="Internship">
+              <SelectItem className='text-lg' value='Internship'>
                 Internship
               </SelectItem>
-              <SelectItem className="text-lg" value="Trainer">
+              <SelectItem className='text-lg' value='Trainer'>
                 Trainer
               </SelectItem>
-              <SelectItem className="text-lg" value="Volunteer">
+              <SelectItem className='text-lg' value='Volunteer'>
                 Volunteer
               </SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
       </section>
-      <section className="flex flex-col gap-2">
-        <Label htmlFor="subject" className="text-lg">
-          Subject<span className="text-myOrange">*</span>
+      <section className='flex flex-col gap-2'>
+        <Label htmlFor='subject' className='text-lg'>
+          Subject<span className='text-myOrange'>*</span>
         </Label>
         <Input
-          placeholder="Interested to join the team"
-          name="subject"
-          className="h-12 text-lg"
+          placeholder='Interested to join the team'
+          name='subject'
+          className='h-12 text-lg'
         />
       </section>
-      <section className="flex flex-col gap-2">
-        <Label htmlFor="message" className="text-lg">
-          Message<span className="text-myOrange">*</span>
+      <section className='flex flex-col gap-2'>
+        <Label htmlFor='message' className='text-lg'>
+          Message<span className='text-myOrange'>*</span>
         </Label>
         <Textarea
-          className="text-lg"
-          placeholder="Your Message"
-          name="message"
+          className='text-lg'
+          placeholder='Your Message'
+          name='message'
         />
       </section>
       <JoinUsFormbutton />
@@ -95,14 +95,14 @@ const JoinUsFormbutton = () => {
       {status.pending ? (
         <Button
           disabled
-          className="bg-myOrange p-6 text-lg hover:bg-orange-600"
+          className='bg-myOrange p-6 text-lg hover:bg-orange-600'
         >
-          <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+          <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
         </Button>
       ) : (
         <Button
-          name="subscribe_button"
-          className="bg-myOrange p-6 text-lg hover:bg-orange-600"
+          name='subscribe_button'
+          className='bg-myOrange p-6 text-lg hover:bg-orange-600'
         >
           Submit
         </Button>

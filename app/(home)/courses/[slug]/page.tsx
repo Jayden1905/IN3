@@ -65,7 +65,7 @@ export default async function CoursePage({
   params: { slug: string }
 }) {
   const data = await getCourse(params.slug)
-  const subCourses = data.subCourses
+  const subCourses = data.subCourses || []
 
   const OPTIONS: EmblaOptionsType = {
     dragFree: true,

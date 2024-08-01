@@ -67,7 +67,7 @@ export default function Nav() {
       } transition-all duration-300 ease-in-out`}
     >
       <Container className="flex items-center justify-between text-lg font-semibold tracking-wide">
-        <Link href={'/'} className="font-solaris text-myOrange text-3xl">
+        <Link href={'/'} className="font-solaris text-myOrange text-4xl">
           IN3
         </Link>
         <ul className="hidden gap-8 md:flex">
